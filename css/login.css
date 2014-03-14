@@ -1,0 +1,61 @@
+﻿	.login{
+		width: 300px;
+		height:500px;
+		margin-top:10%;
+		margin-left:50%;
+		margin-right:auto;
+		
+	}
+	p{
+		font-size:30px;
+		font-family: 微軟正黑體;
+	}
+	.login_content
+	{
+		width:300px;
+		height:350px;
+		background:#E6DEEE;
+	}
+	.fblogin{
+		*width:300px;
+		*height:50px;
+		
+	}
+	img{
+		width:150px;
+		heigh:50px;
+		margin-top:5%;
+		margin-left:25%;
+		margin-right:auto;
+		}
+	form{
+		font-size:20px;
+		font-family: 微軟正黑體;
+
+	}
+	.login_insert{
+		margin-top:20%;
+		list-style:none;
+	}
+	.login_insert>li{
+		height:40px;
+	}
+	.login_insert>li>input{
+		border-width:4px;
+		border-style:solid;
+		width:130px;
+	}
+	.login_sent {
+		list-style:none;
+	}
+	.login_sent >li>input{
+		position:relative;left:155px;
+	}
+	.login_sent >li>p{
+		font-size:20px;
+		width:200px;
+		margin-top:20%;
+		margin-left:auto;
+		margin-right:auto;
+		padding: 0 30px 0 30px;		
+	}
