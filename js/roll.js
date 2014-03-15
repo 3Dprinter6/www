@@ -13,9 +13,7 @@ var timer=1;
 			arr[9]="translateX(1650px) ";
 			arr[10]="translateX(1950px) ";
 			arr[11]="translateX(2250px) ";
-		//	for (var i=5;i<panelCount;i++)
-		//		arr[i]="translateX("+(700+(i-5)*400)+"px)";
-			arr[12]="";   //temp
+			arr[12]="translateX(2550px) ";
 	
     var init = function() {
       var carousel = document.getElementById('carousel'),
@@ -37,57 +35,34 @@ var timer=1;
 			var temp;
 			var ram2;
 			for (var i=(panelCount-1);i>=0;i--){ 
-				//var temp=document.getElementById(eval("figure"+i));
-					temp=eval("figure"+i);
+				temp=eval("figure"+i);
 					
 					
 /* ----------- Disable the animation when the end transform to the front ----------- */
-//==================================================================				
-				
-					
+		
 					if  (i==(Math.abs(count-2)%panelCount)){
 						if (count==0 || count==1)
 							eval("figure"+(panelCount-(2-count))).style[transitionProp ]="-webkit-transform 0s";
 						else
 							temp.style[transitionProp ]="-webkit-transform 0s";
-			//				alert(count);
-			//				timer++;
 						}
-					
-				
-					
-					
 					if  (i==((count+(panelCount-3))%panelCount)){
 						temp.style[transitionProp ]="-webkit-transform 1s";
-			//			alert("if1"+i);
 					}
-					
-				
-					
-	
-//==================================================================
-
+//--------------------------------------------------------------------------------------------------
 
 
 /* ----------- In order to let figure 0 follow figure 10 correctly ----------- */
-//==================================================================
 					if  (i==(panelCount-1))
 						ram=arr[i];
-//					alert(i);
-					if  (i==0 ){
-//						alert(i);
-						
+					if  (i==0 ){				
 						arr[i]=ram;
 						temp.style[transformProp ]=ram;
 						break;
 					}
-//==================================================================
-					
-		//			alert("hi");
-			//		alert(arr[i-1]);
+//--------------------------------------------------------------------------------------------------
+
 					temp.style[ transformProp ] = arr[i-1];
-			//		alert(temp.style[ transformProp ] );
-			//		arr[12]=arr[i];
 					arr[i]=arr[i-1];
 				}
 			count++;	          //the left pic figure number
@@ -99,53 +74,34 @@ var timer=1;
 				for (var i=0;i<panelCount;i++){ 
 					temp=eval("figure"+i);		
 
-/* ----------- Disable the animation when the front transform to the end ----------- */
-//==================================================================			
+/* ----------- Disable the animation when the front transform to the end ----------- */		
 					if  (i==((count+(panelCount-3))%panelCount))
 						temp.style[transitionProp ]="-webkit-transform 0s";
-						
-						
-						
-						
-						
+
 					if  (i==(Math.abs(count-2)%panelCount)){
 						if (count==0 || count==1)
 							eval("figure"+(panelCount-(2-count))).style[transitionProp ]="-webkit-transform 1s";
 						else
 							temp.style[transitionProp ]="-webkit-transform 1s";
-			//				alert(count);
-			//				timer++;
 						}
 						
-		//			alert(count);
-//==================================================================			
+//--------------------------------------------------------------------------------------------------	
 
-
-
-/* ----------- In order to let figure 10 follow figure 0 correctly ----------- */
-//==================================================================		
+/* ----------- In order to let figure 10 follow figure 0 correctly ----------- */	
 					if  (i==0)
 						ram=arr[i];
-//					alert(i);
-					if  (i==(panelCount-1) ){
-//						alert(i);
-						
+					if  (i==(panelCount-1) ){	
 						arr[i]=ram;
 						temp.style[transformProp ]=ram;
 						break;
 					}
-//==================================================================
+//--------------------------------------------------------------------------------------------------
 					
-		//			alert("hi");
-			//		alert(arr[i-1]);
 					temp.style[ transformProp ] = arr[i+1];
-			//		alert(temp.style[ transformProp ] );
-			//		arr[12]=arr[i];
 					arr[i]=arr[i+1];
 				}
 			count--;	
 			}
-					
           };
 
       for (var i=0; i < 2; i++) {
