@@ -1,7 +1,7 @@
 <?php
     global $_DB;	
     $_DB['host'] = "localhost";
-    $_DB['username'] = "xxxx";
-    $_DB['password'] = "xxxx";
-    $_DB['dbname'] = "xxxx";
+    $_DB['username'] = "root";
+    $_DB['password'] = "juju831";
+    $_DB['dbname'] = "3dprinter";
 ?>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- disable zooming -->
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=0" />
+  <title>圖片翻轉</title>
+  <link rel="stylesheet" href="css/style.css" media="screen" />
+  <link rel="stylesheet" href="css/container.css" media="screen" />
+  <link rel='stylesheet'  type="text/css" href="css/fixbar.css">
+    <style media="screen">
+
+	.scroll{height:65%}
+	.buttom{height:px}
+	.buttom_button{list-style:none;position:absolute;left:20%;-webkit-padding-start:0px;}
+	.buttom_button>li{display:inline;margin:20px;}
+	.buttom_button>li>a{text-decoration: none}
+  </style>
+
+</head>
+<body>
+	<div class="navbar navbar-fixed-top" >
+      <div class="navbar-inner" >
+        <div class="navcontainer" >
+		<ul class="nav">
+            <li><a><input type="text"></a></li>
+            <li><a href="">搜尋</a></li>
+          </ul>
+		  <span class="brand" href="#" >Logo</span>
+          <ul class="nav pull-right">
+            <li><a href="login.php" target="_blank">登入</a></li>
+            <li><a href="register.html" target="_blank">註冊</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <section class="jucontainer">
+    <div id="cube" class="show-front">
+      <img class="front" src='img/1.jpg' />
+      <img class="back" src='img/2.jpg' />
+      <img class="right" src='img/3.jpg' />
+    </div>
+  </section>
+
+  <section id="juoptions">
+    <p id="show-buttons">
+      <button class="show-front">Show 1</button>
+      <button class="show-right">Show 2</button>
+	  <button class="show-back">Show 3</button>
+   </p>
+  </section>
+
+  <script src="js/utils.js"></script>
+  <script src="js/rotate-box.js"></script>
+   
+</body>
+</html>
