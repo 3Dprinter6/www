@@ -1,6 +1,5 @@
 var count=2;     //default preload left image
 var arr=new Array();
-
 arr[0]="translateX(-600px) ";
 arr[1]="translateX(-400px) ";
 arr[2]="translateX(-80px) rotateY(-45deg)  translateZ(150px)";
@@ -9,6 +8,7 @@ arr[4]="translateX(80px)  rotateY(45deg)  translateZ(150px)";
 for (var i=5;i<10;i++){
 	arr[i]="translateX("+(400+200*(i-5))+"px)";
 }
+
 var rollinit = function() {
     var carousel = document.getElementById('carousel'),
         navButtons = document.querySelectorAll('#navigation button'),
@@ -17,31 +17,66 @@ var rollinit = function() {
 		transitionProp = Modernizr.prefixed('transition'),
 		onNavButtonClick = function( event ){
         var increment = parseInt( event.target.getAttribute('data-increment') );
-		if (count>=0)	
-			count=count%panelCount;	
-		else if (count<0)
-			count=panelCount-(Math.abs(count)%panelCount);   //count==-1 || -12|| -23 represent figure10
-				
+		initCalculate(panelCount);
+		if  (increment==1)
+			next(panelCount,transformProp,transitionProp);
+		else 
+			previous(panelCount,transformProp,transitionProp);
+		};
+		
+		for (var i=0; i < 2; i++) {
+		navButtons[i].addEventListener( 'click', onNavButtonClick, false);
+		}
+}
+
+function initCalculate(panelCount){
+	if (count>=0)	
+		count=count%panelCount;	
+	else if (count<0)
+		count=panelCount-(Math.abs(count)%panelCount);   //count==-1 || -12|| -23 represent figure10
+}
+
+
+function next(panelCount,transformProp,transitionProp){
 			
-			
-		if  (increment==1){
+		
 			var ram;                                   //save figure 10 in the beginning due to the for loop start from figure 10, its first coordinate must be record so that figure 0 know where to follow
 			var temp;
 			var ram2;
 			for (var i=(panelCount-1);i>=0;i--){ 
 				temp=eval("figure"+i);
+				
+/* ----------- The middle image opacity ----------- */				
+				if (i==(count+2)%panelCount){
+					var span=document.getElementById('imageInfo'+i);
+					span.style.opacity='0.8';
+					span.innerHTML="figure"+i;
+					temp.style['-webkit-filter']="grayscale(0)";
+					temp.className='nonopa';
+					}
+				else {
 					
+					var span=document.getElementById('imageInfo'+i);
+					span.style.opacity='0';
+					temp.style['-webkit-filter']="grayscale(1)";
+					temp.className='opa';
+					if ((i==(count+3)%panelCount) || (i==(count+1)%panelCount )){
+						temp.className='middleopa';
+					}
+				}
+//--------------------------------------------------------------------------------------------------	
+				
 					
 /* ----------- Disable the animation when the end transform to the front ----------- */
 		
 				if  (i==(Math.abs(count-2)%panelCount)){
 					if (count==0 || count==1)
-						eval("figure"+(panelCount-(2-count))).style[transitionProp ]="-webkit-transform 0s";
+						eval("figure"+(panelCount-(2-count))).style[transitionProp ]="all  0s";
 					else
-						temp.style[transitionProp ]="-webkit-transform 0s";
+						temp.style[transitionProp ]="all  0s";
 				}
 				if  (i==((count+(panelCount-3))%panelCount)){
-					temp.style[transitionProp ]="-webkit-transform 1s";
+					temp.style[transitionProp ]="all  1s";
 				}
 //--------------------------------------------------------------------------------------------------
 
@@ -55,28 +90,59 @@ var rollinit = function() {
 					break;
 				}
 //--------------------------------------------------------------------------------------------------
+				
 
 				temp.style[ transformProp ] = arr[i-1];
 				arr[i]=arr[i-1];
 			}
 			count++;	          //the left pic figure number
-		}
+		
+}
 
-		else if (increment==-1){
+
+
+
+
+function previous(panelCount,transformProp,transitionProp){
+		
 			var ram;                                     //save figure 0 in the beginning due to the for loop start from figure 0, its first coordinate must be record so that figure 10 know where to follow
 			var temp;
 			for (var i=0;i<panelCount;i++){ 
 				temp=eval("figure"+i);		
 
+/* ----------- The middle image opacity ----------- */	
+			if (i==count){
+					var span=document.getElementById('imageInfo'+i);
+					span.style.opacity='0.8';
+					span.innerHTML="figure"+i;
+					temp.className='nonopa';
+					temp.style['-webkit-filter']="grayscale(0)";
+			}else{ 
+				var span=document.getElementById('imageInfo'+i);
+				span.style.opacity='0';
+				temp.className='opa';
+				temp.style['-webkit-filter']="grayscale(1)";
+				
+				if  (i==(count+1)%panelCount ){
+						temp.className='middleopa';
+					}
+				if ((count-1)<0)
+					eval("figure"+(panelCount-1)).className='middleopa'; 	
+				else if (i==(count-1)%panelCount)
+					temp.className='middleopa';
+			}
+//--------------------------------------------------------------------------------------------------	
+				
+			
 /* ----------- Disable the animation when the front transform to the end ----------- */		
 				if  (i==((count+(panelCount-3))%panelCount))
-					temp.style[transitionProp ]="-webkit-transform 0s";
+					temp.style[transitionProp ]="all  0s";
 
 				if  (i==(Math.abs(count-2)%panelCount)){
 					if (count==0 || count==1)
-						eval("figure"+(panelCount-(2-count))).style[transitionProp ]="-webkit-transform 1s";
+						eval("figure"+(panelCount-(2-count))).style[transitionProp ]="all  1s";
 					else
-						temp.style[transitionProp ]="-webkit-transform 1s";
+						temp.style[transitionProp ]="all  1s";
 					}
 						
 //--------------------------------------------------------------------------------------------------	
@@ -90,16 +156,13 @@ var rollinit = function() {
 					break;
 				}
 //--------------------------------------------------------------------------------------------------
-					
+				
 				temp.style[ transformProp ] = arr[i+1];
 				arr[i]=arr[i+1];
 			}
-			count--;	
-		}
-		};
+			count--;		
+}
 
-	for (var i=0; i < 2; i++) {
-		navButtons[i].addEventListener( 'click', onNavButtonClick, false);
-    }
-    };
+
+    
 window.addEventListener( 'DOMContentLoaded', rollinit, false);

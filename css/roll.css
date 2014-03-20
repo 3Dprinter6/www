@@ -19,10 +19,15 @@
 			  height: 240px;
 			  left: 10px;
 			  top: 10px;
-			  line-height: 116px;
+			  line-height: 30px;
 			  font-size: 80px;	
 			  color: white;
 			  text-align: center;
+			-webkit-border-top-left-radius:25px;
+			-webkit-border-top-right-radius:25px;
+			-webkit-border-bottom-left-radius:25px;
+			-webkit-border-bottom-right-radius:25px;
+			
 			}  
 
 			#carousel figure:nth-child(12) {
@@ -50,11 +55,48 @@
 				margin:0 auto 70px;;
 			}
 			img{
-				-webkit-filter: grayscale(1);
+			*	-webkit-filter: grayscale(1);
 				cursor: pointer;
+			
 				-webkit-transition: all .5s ease;
+				-webkit-border-top-left-radius:25px;
+				-webkit-border-top-right-radius:25px;
+				-webkit-border-bottom-left-radius:25px;
+				-webkit-border-bottom-right-radius:25px;
 			}
 			img:hover{
-				-webkit-filter: grayscale(0);
-			  -webkit-transform: scale(1.2,1.2);
+		*	-webkit-filter: grayscale(0);
+		*	  -webkit-transform: scale(1.2,1.2);
 			}
+			body{
+			background:black;
+			}
+			
+			.opa{
+				opacity:.3;
+			}
+			.nonopa{
+				opacity:1;
+			}
+			.middleopa{
+				opacity:.6;
+			}
+			
+			#carousel figure span{
+				-webkit-border-top-left-radius:25px;
+				-webkit-border-top-right-radius:25px;
+				
+				-webkit-transform-style: preserve-3d;
+				-webkit-transition: all 1s;
+				position: absolute;
+				width: 180px;
+				height: 30px;
+				left: 0px;
+				top: 0px;
+				background:black;
+				display:inline;
+				
+				font-family: verdana;
+				font-size:12px;
+			}
+			
