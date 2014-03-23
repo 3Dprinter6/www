@@ -30,18 +30,6 @@
 			
 			}  
 
-			#carousel figure:nth-child(12) {
-				display: block;
-				position: absolute;
-				left: 10px;
-				top: 10px;
-
-				line-height: 116px;
-				font-size: 80px;
-				font-weight: bold;
-				color: white;
-				text-align: center;
-			}  
 			
 	
 			  #options{

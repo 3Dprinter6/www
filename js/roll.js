@@ -5,7 +5,7 @@ arr[1]="translateX(-400px) ";
 arr[2]="translateX(-80px) rotateY(-45deg)  translateZ(150px)";
 arr[3]="rotateY(0deg)   translateZ(200px)";
 arr[4]="translateX(80px)  rotateY(45deg)  translateZ(150px)";
-for (var i=5;i<10;i++){
+for (var i=5;i<13;i++){                                                  //the maximum of i = panelCount
 	arr[i]="translateX("+(400+200*(i-5))+"px)";
 }
 
