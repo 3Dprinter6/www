@@ -23,21 +23,27 @@
         </div>
       </div>
     </div>
+<div class="info">
+  介紹
+</div>
 <div class="login">
-	<span><p>已有帳號：</p></span>
+  <div class="logo">
+    LOGO
+  </div>
 	<div class="login_content">
-		<a href=""><img src="img/fb.PNG" ></a>
-		<form  method="POST" action="connect.php" >
-			<ul class="login_insert">
-				<li>帳號：<input type="text" name="Account"  ></li>
-				<li>密碼：<input type="password" name="Password" ></li>
-			</ul>
-			<ul class="login_sent">	
-				<li><input  type="submit" name="Login" value="登入" ></li>
-				<li><p>沒有帳號請<a href="register.html">註冊</a></p></li>
-			</ul>	
-		</form>
-	</div>
+	  <ul class="login_insert">
+		<li>帳號：<input type="text" name="Account"  ></li>
+		<li>密碼：<input type="password" name="Password" ></li>
+	  </ul>
+	  <ul class="login_sent">	
+                <li><input  type="submit" name="Login" value="登入" ></li>
+		<li><p>沒有帳號請<a href="register.html">註冊</a></p></li>
+                <li><p>或使用facebook登入</p></li>
+	  </ul>
+          <a href=""><img src="img/fb.PNG" ></a>
+	  <form  method="POST" action="connect.php" >
+	  </form>
+        </div>
 </div>	
 <?php //header('Refresh:3');  //for zhen debug usage?>      
 </body>
