@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=big5" />
@@ -23,13 +23,14 @@
         </div>
       </div>
     </div>
-<div class="info">
+<div class="middle">
+  <div class="info">
   介紹
-</div>
-<div class="login">
-  <div class="logo">
-    LOGO
   </div>
+  <div class="login">
+    <div class="logo">
+    LOGO
+    </div>
 	<div class="login_content">
 	  <ul class="login_insert">
 		<li>帳號：<input type="text" name="Account"  ></li>
@@ -44,6 +45,7 @@
 	  <form  method="POST" action="connect.php" >
 	  </form>
         </div>
+  </div>
 </div>	
 <?php //header('Refresh:3');  //for zhen debug usage?>      
 </body>
