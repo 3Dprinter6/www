@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿.middle{
 	border-right: 280px solid #000000;
 	position:relative;
@@ -15,6 +16,25 @@
 	margin-right:-250px;
 	margin-top:10%;  
 	background:#E6DEEE;
+=======
+.middle{
+  border-right: 280px solid #000000;
+  position:relative;
+}
+.middle:after{
+  display:table;
+  clear:both;
+  info:'';
+}
+.login{
+  float:right;
+  position:relative;
+  width: 280px;
+  height:500px;
+  margin-right:-250px;
+  margin-top:10%;
+  background:#E6DEEE;
+>>>>>>> 8373c71340056e8786a614ab3fa46493ce7d1b41
 }
 .logo{
   padding-top:50px;
@@ -24,6 +44,7 @@
   text-align : center;
 }
 .info{
+<<<<<<< HEAD
 	float:left;
 	margin-right:-100%;
 	margin-top:10%;
@@ -31,6 +52,15 @@
 	overflow:hidden;
 	height:400px;
 	border:2px solid blue;
+=======
+  float:left;
+  margin-right:-100%;
+  margin-top:10%;
+  width:100%;
+  overflow:hidden;
+  height:400px;
+  border:2px solid blue;
+>>>>>>> 8373c71340056e8786a614ab3fa46493ce7d1b41
 }
 p{
   font-size:30px;
