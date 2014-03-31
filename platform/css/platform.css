@@ -40,13 +40,11 @@
 		#scale{
 				-webkit-transition:all 0.5s;
 				position:absolute;
-				margin-left:20%;
+				margin-left:30%;
 				margin-top:150px;
-				height:450px;
 				-webkit-transform:scale(0,0);
 		}
 		#scale #pic{
-			
 			display:inline;
 			float:left;
 		}
@@ -75,12 +73,16 @@
 			-webkit-border-top-right-radius:20px;
 			-webkit-border-bottom-left-radius:20px;
 			-webkit-border-bottom-right-radius:20px;
-			padding-top:10px;
-			padding-left:10px;
-			padding:right:10px;
-			padding-bottom:10px;
-			
+			color:black;		
 			}
+		#illustrate #illustrateContent{
+			word-wrap: break-word;
+			
+			
+			padding-bottom:10px;
+			padding-left:10px;
+			padding-right:10px;
+		}
 		#advance #previous{
 			position:absolute;
 			left:10px;
@@ -142,7 +144,7 @@
 		#loadingIMG1{
 			position:absolute;
 			left:50%;
-			top:50%;
+			top:35%;
 		}
 		
 		#typeSelector{

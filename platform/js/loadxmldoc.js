@@ -1,19 +1,38 @@
 function loadXMLDoc(filename)
 {
-	if (window.XMLHttpRequest)
-	{
-		xhttp=new XMLHttpRequest();
+	var xhttp = false;                                    //default false
+	if(window.XMLHttpRequest) { // Mozilla, Safari, ....
+		xhttp = new XMLHttpRequest();
+	  }
+	else if(window.ActiveXObject) { // IE
+		try {
+			xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+		}
+		catch (e) {
+		try {
+			xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch (e) {}
+		}
 	}
-	else // code for IE5 and IE6
-	{
-		xhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	
 	if (!xhttp) {
 		alert('Giving up :( Cannot create an XMLHTTP instance');
 		return false;
 	}
-	xhttp.open("GET",filename,false);
+	var  temp=function(){
+		if (xhttp.readyState==4){
+				if (xhttp.status==200){
+				//	alert(xhttp.responseXML);
+					readXML(xhttp.responseXML);
+				}
+		}else{
+			alert("There's seems to be something wrong");
+		}
+	}
+	xhttp.onreadystatechange=function(){
+		setTimeout(temp,1000);
+	}
+	xhttp.open("GET",filename,true);
 	xhttp.send();
-	return xhttp.responseXML;
+	
 }

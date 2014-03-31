@@ -1,13 +1,14 @@
 <html>
 <meta charset="utf-8" />
 <head>
+	<script type="text/javascript" src="js/loadxmldoc.js"></script>
 	<title>首頁</title>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=0" />
 	<link rel=stylesheet type="text/css" href="css/fixbar.css">
 	<link rel=stylesheet type="text/css" href="css/platform.css">
 	<link rel=stylesheet type="text/css" href="css/uploadbar.css">
 </head>
-<body style="overflow-x: hidden;" >
+<body style="overflow-x: hidden;"  >
 <div id="mask">
 	<div class="navbar navbar-fixed-top" >
       <div class="navbar-inner" >
@@ -39,7 +40,7 @@
 	<img id="img10" onclick="picScale(this.id);" src="img/pic11.jpg" ></img>
 	<img id="img11" onclick="picScale(this.id);" src="img/pic12.jpg" ></img>
 </div>
-<div id="loadingIMG1" class="off"><img src="loading.gif" height='5%' width='7.5%'/></div>
+<div id="loadingIMG1" class="off"><img src="loading.gif" height='' width=''/></div>
 <div id="nextGallery" ><a href="#" onclick="loadXMLFile(1); " ><img src="img/next.png"  width="50" height="50"/> </a></div>
 <div id="previousGallery" class="off"><a href="#" onclick="loadXMLFile(-1);"><img src="img/previous.png"  width="50" height="50"/> </a></div>
 
@@ -96,11 +97,14 @@
 		</div>
 	<div id="illustrate" >
 		<img src="x.png" id="close" onclick="picClose()" />
-		Figure
+		<div id="illustrateContent"><h1>Figure</h1><p>基本底圖和Icon
+有需要改尺寸再跟我說
+(此底圖不含展覽平台底圖</div>
 	</div>
 </div>
 
 <script type="text/javascript" src="js/platform.js"></script>
 <script type="text/javascript" src="js/uploadbar.js"></script>
+
 </body>
 </html>
