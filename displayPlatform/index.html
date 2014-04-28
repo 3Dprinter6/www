@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>展覽平台</title>
+<script type="text/javascript" src="js/utils.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel=stylesheet type="text/css" href="css/fixbar.css">
+<link rel=stylesheet type="text/css" href="css/platform.css">
+<link rel="stylesheet" type="text/css" media="screen and (max-width: 1750px)" href="css/responsive.css"/>
+<link rel="stylesheet" type="text/css" media="screen and (max-width: 1600px)" href="css/responsive2.css"/>
+<link rel="stylesheet" type="text/css" media="screen and (max-width: 1400px)" href="css/responsive3.css"/>
+<link rel="stylesheet" type="text/css" media="screen and (max-width: 1100px)" href="css/responsive4.css"/>
+
+<script type="text/javascript">
+	var timer1;
+	function autoScroll(){
+		timer1 = setTimeout("autoScroll()",3000);
+		onNavButtonClick(1,-1);
+	}
+</script>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top" >
+      <div class="navbar-inner" >
+        <div class="navcontainer" >
+		<ul class="nav">
+            <li><a><input type="text"></a></li>
+            <li><a href="">搜尋</a></li>
+          </ul>
+		  <span class="brand" href="#" >Logo</span>
+          <ul class="nav pull-right">
+            <li><a href="login.php" target="_blank">登入</a></li>
+            <li><a href="register.html" target="_blank">註冊</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+<div id="spinCircle">
+	<figure id= "figure1"><img src="img/pic1.jpg" ><span id= "imageInfo1" >johnhckuo</span></figure>
+	<figure id= "figure2"><img src="img/pic2.jpg" ><span id= "imageInfo2" >juju831</span></figure>
+	<figure id= "figure3"><img src="img/pic3.jpg" ><span id= "imageInfo3" >issarc</span></figure>
+	<figure id= "figure4"><img src="img/pic4.jpg" ><span id= "imageInfo4" >iwillrestart</span></figure>
+	<figure id= "figure5"><img src="img/pic5.jpg" ><span id= "imageInfo5" >emilylyt0213</span></figure>
+	<figure id= "figure6"><img src="img/pic6.jpg" ><span id= "imageInfo6" >johnhckuo</span></figure>
+	<figure id= "figure7"><img src="img/pic7.jpg" ><span id= "imageInfo7" >juju831</span></figure>
+</div>
+  <section id="options">
+		<p id="navigation">
+			<div id="previous"><a href="#" onclick="onNavButtonClick(-1,1); " ><img src="img/previous.png"  width="50" height="50"/> </a></div>
+			<div id="next"><a href="#" onclick="onNavButtonClick(1,1); " ><img src="img/next.png"  width="50" height="50"/> </a></div>
+		</p>
+	</section>
+ <div id="extendInfo">
+		<div id="background" ></div>
+	<div id = "extendText" class="on"></div>
+	
+  </div>
+</body>
+
+<script type="text/javascript" src="js/platform.js"></script>
+<script type="text/javascript">
+	// if the index.html autoScroll() function is enabled ?
+	autoScroll();
+</script>
+</html>

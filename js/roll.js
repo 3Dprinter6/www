@@ -1,33 +1,42 @@
-var count=2;     //default preload left image
+var count=0;     //first image
+
 var arr=new Array();
-arr[0]="translateX(-600px) ";
-arr[1]="translateX(-400px) ";
-arr[2]="translateX(-80px) rotateY(-45deg)  translateZ(150px)";
-arr[3]="rotateY(0deg)   translateZ(200px)";
-arr[4]="translateX(80px)  rotateY(45deg)  translateZ(150px)";
-for (var i=5;i<13;i++){                                                  //the maximum of i = panelCount
-	arr[i]="translateX("+(400+200*(i-5))+"px)";
+arr[0]="translateX(-1700px) ";
+arr[1]="translateX(-1400px) ";
+arr[2]="translateX(-1100px) ";
+arr[3]="translateX(-800px) ";
+arr[4]="translateX(-500px) ";
+arr[5]="translateX(-200px) rotateY( -45deg ) translateZ( 100px )";
+arr[6]="rotateY(0deg) translateZ( 200px )";
+arr[7]="translateX(200px) rotateY( 45deg ) translateZ( 100px )";
+arr[8]="translateX(500px) ";
+arr[9]="translateX(800px) ";
+arr[10]="translateX(1100px) ";
+arr[11]="translateX(1400px) ";
+arr[12]="translateX(1700px) ";
+
+var dist = parseInt(arr.length/2) - 2;  // leftleft img
+
+function $(id){
+	return document.getElementById(id);
 }
 
-var rollinit = function() {
-    var carousel = document.getElementById('carousel'),
-        navButtons = document.querySelectorAll('#navigation button'),
-        panelCount = carousel.children.length,
-        transformProp = Modernizr.prefixed('transform'),
-		transitionProp = Modernizr.prefixed('transition'),
-		onNavButtonClick = function( event ){
-        var increment = parseInt( event.target.getAttribute('data-increment') );
-		initCalculate(panelCount);
-		if  (increment==1)
-			next(panelCount,transformProp,transitionProp);
-		else 
-			previous(panelCount,transformProp,transitionProp);
-		};
-		
-		for (var i=0; i < 2; i++) {
-		navButtons[i].addEventListener( 'click', onNavButtonClick, false);
-		}
-}
+function onNavButtonClick(increment,flag){
+			
+			if  (flag == 1){
+				clearTimeout(timer1);    //setTimeout id name
+			}								
+			panelCount = $('carousel').children.length;
+			initCalculate(panelCount);
+			if (increment == 1){
+				next(panelCount);
+			}
+			else if (increment == -1){
+				previous(panelCount);
+			}
+    }
+	
+
 
 function initCalculate(panelCount){
 	if (count>=0)	
@@ -37,17 +46,14 @@ function initCalculate(panelCount){
 }
 
 
-function next(panelCount,transformProp,transitionProp){
-			
-		
-			var ram;                                   //save figure 10 in the beginning due to the for loop start from figure 10, its first coordinate must be record so that figure 0 know where to follow
-			var temp;
-			var ram2;
+function next(panelCount){
+			var ram;                 //save figure 10 in the beginning due to the for loop start from figure 10, its first coordinate must be record so that figure 0 know where to follow
+
 			for (var i=(panelCount-1);i>=0;i--){ 
-				temp=eval("figure"+i);
+				var temp=eval("figure"+i);
 				
 /* ----------- The middle image opacity ----------- */				
-				if (i==(count+2)%panelCount){
+				if (i==(count+dist+3)%panelCount){
 					var span=document.getElementById('imageInfo'+i);
 					span.style.opacity='0.8';
 					span.innerHTML="figure"+i;
@@ -60,7 +66,7 @@ function next(panelCount,transformProp,transitionProp){
 					span.style.opacity='0';
 					temp.style['-webkit-filter']="grayscale(1)";
 					temp.className='opa';
-					if ((i==(count+3)%panelCount) || (i==(count+1)%panelCount )){
+					if ((i==(count+dist+2)%panelCount) || (i==(count+dist+4)%panelCount )){
 						temp.className='middleopa';
 					}
 				}
@@ -69,14 +75,11 @@ function next(panelCount,transformProp,transitionProp){
 					
 /* ----------- Disable the animation when the end transform to the front ----------- */
 		
-				if  (i==(Math.abs(count-2)%panelCount)){
-					if (count==0 || count==1)
-						eval("figure"+(panelCount-(2-count))).style[transitionProp ]="all  0s";
-					else
-						temp.style[transitionProp ]="all  0s";
+				if  (i == (count%panelCount)){
+						temp.style.webkitTransition="all  0s";
 				}
-				if  (i==((count+(panelCount-3))%panelCount)){
-					temp.style[transitionProp ]="all  1s";
+				if  (i == ((count+(panelCount-1))%panelCount)){
+					temp.style.webkitTransition="all  1s";
 				}
 //--------------------------------------------------------------------------------------------------
 
@@ -86,13 +89,13 @@ function next(panelCount,transformProp,transitionProp){
 					ram=arr[i];
 				if  (i==0 ){				
 					arr[i]=ram;
-					temp.style[transformProp ]=ram;
+					temp.style.webkitTransform=ram;
 					break;
 				}
 //--------------------------------------------------------------------------------------------------
 				
 
-				temp.style[ transformProp ] = arr[i-1];
+				temp.style.webkitTransform= arr[i-1];
 				arr[i]=arr[i-1];
 			}
 			count++;	          //the left pic figure number
@@ -103,15 +106,14 @@ function next(panelCount,transformProp,transitionProp){
 
 
 
-function previous(panelCount,transformProp,transitionProp){
-		
+function previous(panelCount){
 			var ram;                                     //save figure 0 in the beginning due to the for loop start from figure 0, its first coordinate must be record so that figure 10 know where to follow
 			var temp;
 			for (var i=0;i<panelCount;i++){ 
 				temp=eval("figure"+i);		
 
 /* ----------- The middle image opacity ----------- */	
-			if (i==count){
+			if (i == (count+dist+1)%panelCount){
 					var span=document.getElementById('imageInfo'+i);
 					span.style.opacity='0.8';
 					span.innerHTML="figure"+i;
@@ -123,26 +125,20 @@ function previous(panelCount,transformProp,transitionProp){
 				temp.className='opa';
 				temp.style['-webkit-filter']="grayscale(1)";
 				
-				if  (i==(count+1)%panelCount ){
+				if  (i==(count+dist)%panelCount || i == (count+dist+2)%panelCount){
 						temp.className='middleopa';
 					}
-				if ((count-1)<0)
-					eval("figure"+(panelCount-1)).className='middleopa'; 	
-				else if (i==(count-1)%panelCount)
-					temp.className='middleopa';
+
 			}
 //--------------------------------------------------------------------------------------------------	
 				
 			
 /* ----------- Disable the animation when the front transform to the end ----------- */		
-				if  (i==((count+(panelCount-3))%panelCount))
-					temp.style[transitionProp ]="all  0s";
+				if  (i==((count+(panelCount-1))%panelCount))
+					temp.style.webkitTransition="all  0s";
 
-				if  (i==(Math.abs(count-2)%panelCount)){
-					if (count==0 || count==1)
-						eval("figure"+(panelCount-(2-count))).style[transitionProp ]="all  1s";
-					else
-						temp.style[transitionProp ]="all  1s";
+				if  (i==(count%panelCount)){
+						temp.style.webkitTransition="all  1s";
 					}
 						
 //--------------------------------------------------------------------------------------------------	
@@ -152,17 +148,14 @@ function previous(panelCount,transformProp,transitionProp){
 					ram=arr[i];
 				if  (i==(panelCount-1) ){	
 					arr[i]=ram;
-					temp.style[transformProp ]=ram;
+					temp.style.webkitTransform=ram;
 					break;
 				}
 //--------------------------------------------------------------------------------------------------
 				
-				temp.style[ transformProp ] = arr[i+1];
+				temp.style.webkitTransform = arr[i+1];
 				arr[i]=arr[i+1];
 			}
 			count--;		
 }
 
-
-    
-window.addEventListener( 'DOMContentLoaded', rollinit, false);
