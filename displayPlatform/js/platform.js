@@ -6,8 +6,6 @@
 		return document.getElementById(id);
 	}
 	function transformInit(){
-			text=$('extendText');
-			text.innerHTML="<h1>figure4</h1><p>THIS figure number 4";
 		/*	for (var i = 1 ; i<=panelCount ; i++){                                              // up bound = total pictures
 				var figure = document.createElement("figure");
 				figure.setAttribute("id","figure"+i);
