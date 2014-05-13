@@ -70,7 +70,7 @@ function drop(e){
 
     xhr.open("POST","upload.php");
     xhr.onload=function(){
-
+		$(DragUpload.target.id+"dragData").value = files[0].name;
     };
 
     xhr.upload.onprogress=function(e){
@@ -81,13 +81,13 @@ function drop(e){
         var temp = DragUpload.target.id+"Progress";
         $(temp).style.height=progress*(350/100)+"px";                    // depend on the height of the progress height
       }
-    }
+    };
     for (var i in files){
         if (files[i].type =="image/jpeg"){
-          fd.append("ff[]",files[i]);
           var fr = new FileReader();
           fr.onload=openfile;
           fr.readAsDataURL(files[i]);
+		  fd.append("ff[]",files[i]);
         }
     }
     xhr.send(fd);
@@ -99,13 +99,18 @@ function drop(e){
 
 
 function openfile(e){
-  var img = document.createElement("img");
-  var imgx = e.target.result;
-  img.src=imgx;
-  //img.setAttribute=("id","image");
-  //img.className="image";
-  $(DragUpload.target.id).innerHTML="<div id='"+DragUpload.target.id+"Progress'></div>";
-  $(DragUpload.target.id).appendChild(img);
+  if ($(DragUpload.target.id+"image") == null){
+		var img = document.createElement("img");
+		var imgx = e.target.result;
+		img.src=imgx;
+		img.setAttribute=("id",DragUpload.target.id+"image");
+		//img.className="image";
+		//$(DragUpload.target.id).innerHTML="<div id='"+DragUpload.target.id+"Progress'></div>";
+		$(DragUpload.target.id).appendChild(img);
+  }else{
+		var imgx = e.target.result;
+		$(DragUpload.target.id+"image").src=imgx;
+	}
   setTimeout(function(){img.style.opacity=1;$(DragUpload.target.id).style.opacity=1;},500);
 
   }
@@ -113,6 +118,9 @@ function openfile(e){
 
 function preview(input,e){
   var temp = e.target.parentNode;
+ 
+  temp.childNodes[1].nodeValue = input.files[0].name;
+  
   DragUpload.target = {id:temp.id};
   if (input.files && input.files[0]){
     var fr = new FileReader();

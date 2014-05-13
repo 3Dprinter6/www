@@ -141,45 +141,50 @@
 	</head>
 
 <body style="overflow-x: hidden;background-image:url(/img/bg.png); ">
-	<form action="upload.php" method="post" name="file" id="uploadform" Enctype="multipart/form-data">
+	<form action="upload.php" method="post" name="file" id="uploadform" enctype="multipart/form-data">
 		<div id = "basicInfo">
-			作品名稱:：<input type="text" name="name" /><p>
+			作品名稱:：<input type="text" name="name" />
+			<p>
 			選擇分類：
 			<select name="category">
 				<option value='1'>文字敘述1</option>
 				<option value='2'>文字敘述2</option>
 				<option value='3'>文字敘述3</option>
-			</select><p>
+			</select></p><p>
 			選擇資料夾<select name="dir">
 				<option value='1'>資料夾1</option>
 				<option value='2'>資料夾2</option>
 				<option value='3'>資料夾3</option>
-			</select><p>
-			簡介：<textarea rows="4" cols="50" name="introduction"></textarea><p>
+			</select></p><p>
+			簡介：<textarea rows="4" cols="50" name="introduction"></textarea>
 			是否有套件？(同一套建三種檔案名稱需相同)
 			<input type="radio" name="part" value="yes" />有
-			<input type="radio" name="part" value="no" />無<p>
+			<input type="radio" name="part" value="no" />無</p>
 		</div>
         <div id ="first" class = "upload">
-            拖曳檔案 or 選擇檔案<input type="file" name="normData[]"  id="firstnormData" >
+			<input type = "hidden" name="dragData[]" id="firstdragData" / >
+            拖曳檔案 or 選擇檔案<input type="file" name="normData[]"  id="firstnormData" />
 
             <div id="firstProgress"></div>
         </div>
 		<div id = "second" class = "upload">
-			拖曳檔案 or 選擇檔案<input type="file" name="normData[]"  id="secondnormData">
+			<input type = "hidden" name="dragData[]" id="seconddragData"/ >
+			拖曳檔案 or 選擇檔案<input type="file" name="normData[]"  id="secondnormData" />
 		    <div id="secondProgress"></div>
         </div>
 		<div id = "physical" class = "upload">
-			拖曳檔案 or 選擇檔案<input type="file" name="normData[]"  id="physicalnormData">
+			<input type = "hidden" name="dragData[]" id="physicaldragData"/ >
+			拖曳檔案 or 選擇檔案<input type="file" name="normData[]"  id="physicalnormData" />
 		    <div id="physicalProgress"></div>
         </div>
 		<div id = "info" ></div>
-		<p>
+		<p></p>
 		<div id = "confirm">
 			<hr>
-			<input type="button" id="submit" onclick=" value="OK" />
+			<input type="submit"  />
 			<input type="reset" value="oops" />
 		</div>
+	
 	</form>
 <script type="text/javascript" src="js/drag2.js" ></script>
 
