@@ -3,6 +3,10 @@
 $uploaddir="upload";  
 require_once("db/dblogin.php");
 require_once("db/dbconnect.php");
+<<<<<<< HEAD
+=======
+echo $_FILES["normData"]["name"][0];
+>>>>>>> a37aca000a973dccc897851c200e34115c7bfade
 if (isset($_POST["name"]) && isset($_POST["introduction"] )){
 	$arr=array();
 	$file=array();
@@ -30,7 +34,11 @@ if (isset($_POST["name"]) && isset($_POST["introduction"] )){
 	
 	$db=new DB();
 	$link=$db->connect_db($_DB['host'],$_DB['username'],$_DB['password'],$_DB['dbname']);
+<<<<<<< HEAD
 	$sql= "INSERT INTO platform(  `pictureNo` ,  `3dimageLink` ,  `2dimageLink` ,  `physicalImage` ,  `productInfo` ,  `Score` ,  ` Hitrate` ,  `updateTime` ,`memberNo` , `categoryNo`)  VALUES ('$arr[0]',  '$file[0]',  '$file[1]',  '$file[2]',  '$arr[3]',  '0',  '0',  '' , '6' , '1')";
+=======
+	$sql= "INSERT INTO platform(  `pictureNo` ,  `3dimageLink` ,  `2dimageLink` ,  `physicalLink` ,  `productInfo` ,  `Score` ,  ` Hitrate` ,  `updateTime` ,`memberNo` , `categoryNo`)  VALUES ('$arr[0]',  '$file[0]',  '$file[1]',  '$file[2]',  '$arr[3]',  '0',  '0',  '' , '6' , '1')";
+>>>>>>> a37aca000a973dccc897851c200e34115c7bfade
 	$result = $db->query($link,$sql);
 
 }

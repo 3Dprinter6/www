@@ -19,6 +19,7 @@ $facebook = new Facebook($config);
 </head>
 
 <body background="../img/loginbg.jpg">
+<<<<<<< HEAD
 	<div class="navbar navbar-fixed-top" >
 		<div class="navbar-inner" >
 			<span class="brand" href="#" ></span>
@@ -26,16 +27,31 @@ $facebook = new Facebook($config);
 			<ul class="nav searchbox">
 				<li><input type="text"  placeholder="搜尋" style="font-color:#a1a1a1"></li>
 			</ul> 
+=======
+<div class="navbar navbar-fixed-top" >
+    <div class="navbar-inner" >
+	  <span class="brand" href="#" >
+	  </span>
+        <div class="navcontainer" >          
+			<ul class="nav searchbox">
+				<li><input type="text"  placeholder="搜尋" style="font-color:#a1a1a1"></li>
+			</ul>
+>>>>>>> a37aca000a973dccc897851c200e34115c7bfade
 			<ul class="nav button">
 				<li><a href=""><img src="../img/print.png"></a></li>
 				<li><a href=""><img src="../img/platform.png"></a></li>
 				<li><a href=""><img src="../img/forum.png"></a></li>
 			</ul>
+<<<<<<< HEAD
 			<span class="nav uploadbutton" href=".."><img src="../img/upload.png"></span>
+=======
+				<span class="nav uploadbutton" href=".."><img src="../img/upload.png"></span>
+>>>>>>> a37aca000a973dccc897851c200e34115c7bfade
 			<ul class="nav pull-right">
 				<li><a href="login.php" >登入</a></li>
 				<li ><a href="register.html" >註冊</a></li>
 			</ul>
+<<<<<<< HEAD
 		</div>
 		</div>
 	</div>	
@@ -54,6 +70,26 @@ $facebook = new Facebook($config);
 		<li><p>沒有帳號請<a href="register.html">註冊</a></p></li>
                 <li><p>或使用facebook登入</p></li>
 	  </ul>
+=======
+        </div>
+    </div>
+</div>
+<div class="middle">
+	<div class="login">
+		<div class="logo"><img src="../img/3D-ink.png" width="125" height="125" />  
+		</div>
+	<div class="login_content">
+		<form  method="POST" action="connect.php" >
+			<ul class="login_insert">
+				<li>帳號：<input type="text" name="Account"  ></li>
+				<li>密碼：<input type="password" name="Password" ></li>
+			</ul>
+			<ul class="login_sent">	
+                <input type="submit" name="Login" value="登入" class="a_demo_four">
+				<li><p>沒有帳號請<a href="register.html">註冊</a></p></li>
+                <li><p>或使用facebook登入</p></li>			
+			</ul>
+>>>>>>> a37aca000a973dccc897851c200e34115c7bfade
 				<?php
 					$params = array(
 						'scope' => 'email',					
@@ -100,8 +136,8 @@ $facebook = new Facebook($config);
 					}
 				
 				?>
-			</form>
-		</div>
+		</form>
+	</div>
 	</div>
 </div>	
 <?php //header('Refresh:3');  //for zhen debug usage?>      

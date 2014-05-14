@@ -82,10 +82,13 @@
 					scene.add(mesh);
 
 					stl = null;
+<<<<<<< HEAD
 					
 					//parseStlBinary.geo.style.float = 'right';
 					//parseStlBinary.geo.style.background-color = 'black';
 					//parseStlBinary.style.top = '300px';
+=======
+>>>>>>> a37aca000a973dccc897851c200e34115c7bfade
 				};  
 
 				var parseStl = function(stl) {
@@ -196,7 +199,10 @@
 								break;
 						}
 					}
+<<<<<<< HEAD
 					
+=======
+>>>>>>> a37aca000a973dccc897851c200e34115c7bfade
 				};
 
 				
@@ -240,7 +246,11 @@
 						console.log(e);
 					}
 					
+<<<<<<< HEAD
 					xhr.open( "GET", 'img/print_upload/Taipei101.stl', true );
+=======
+					xhr.open( "GET", 'print_upload/Taipei101.stl', true );
+>>>>>>> a37aca000a973dccc897851c200e34115c7bfade
 					xhr.responseType = "arraybuffer";
 					//xhr.setRequestHeader("Accept","text/plain");
 					//xhr.setRequestHeader("Content-Type","text/plain");
@@ -255,7 +265,10 @@
 					stats = new Stats();
 					stats.domElement.style.position = 'absolute';
 					stats.domElement.style.top = '0px';
+<<<<<<< HEAD
 					
+=======
+>>>>>>> a37aca000a973dccc897851c200e34115c7bfade
 					document.body.appendChild(stats.domElement);
 				}
 
@@ -265,7 +278,10 @@
 					requestAnimationFrame( animate );
 					render();
 					stats.update();
+<<<<<<< HEAD
 					
+=======
+>>>>>>> a37aca000a973dccc897851c200e34115c7bfade
 
 				}
 

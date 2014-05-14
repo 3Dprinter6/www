@@ -25,7 +25,11 @@
 		  <div class="navbar-inner" >
 		  <span class="brand" href="#" ></span>
 			<div class="navcontainer" >
+<<<<<<< HEAD
 				<?php include('./zhen/login_success.php')?>
+=======
+				<?php include('zhen/login_success.php')?>
+>>>>>>> a37aca000a973dccc897851c200e34115c7bfade
 				<ul class="nav searchbox">
 					<li><input type="text"  placeholder="搜尋" style="font-color:#a1a1a1"></li>
 				</ul> 
