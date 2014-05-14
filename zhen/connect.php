@@ -16,12 +16,13 @@
 	$link=$db->connect_db($_DB['host'],$_DB['username'],$_DB['password'],$_DB['dbname']);
 	$sql="SELECT * FROM member where Account = '$Account' ";
 	$result = $db->query($link,$sql);
-	$row = mysqli_fetch_row($result);
+	$row = @mysqli_fetch_assoc($result);
+
 	
-	
-	if($Account != null && $Password != null && $row[3] == $Account && $row[4] == $Password)
+	if($Account != null && $Password != null && $row["Account"] == $Account && $row["Password"] == $Password)
 	{
 		$_SESSION['Account'] = $Account;
+		$_SESSION['memberNo'] = $row["memberNo"];
 		echo '登入成功';
 		header("Location:../index.php" );
 	}

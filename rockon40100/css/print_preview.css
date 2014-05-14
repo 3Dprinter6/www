@@ -43,17 +43,19 @@
 	}
 	
 .P_bottom{
-	width:350px;
+	width:400px;
 	margin-left:auto;
 	margin-right:auto;
 	}
 	
 .P_bottom_button{
 	list-style:none;
+	
 	}
 	
 .P_bottom_button>li{
-	display:inline
+	display:inline;
+
 	}
 	
 .P_bottom_button>li>a>input{

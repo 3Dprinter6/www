@@ -3,8 +3,8 @@
 <?php
         ini_set('display_errors', 'On');
         //尚未連接會員
-        require_once("db/dblogin.php");
-        require_once("db/dbconnect.php");
+        require_once("dblogin.php");
+        require_once("dbconnect.php");
         $db=new DB();
         $link=$db->connect_db($_DB['host'],$_DB['username'],$_DB['password'],$_DB['dbname']);//??
         $receiverName= @$_POST['receiverName'];
