@@ -1,0 +1,17 @@
+.member_pic>img{
+	width:47px;
+	height:47px;
+	border:1px solid gray;
+	float:right;
+	margin-top:21px;
+	}
+	
+.text-right{
+	position:relative;
+	float:right;
+	width:140px;
+	word-wrap: break-word;
+	word-break: normal;
+	vertical-align:bottom;
+	margin-top:25px;
+	}

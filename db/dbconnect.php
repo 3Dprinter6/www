@@ -17,7 +17,7 @@ class DB {
     {
         mysqli_query($link, "SET CHARACTER SET utf8");
         mysqli_query($link,  "SET collation_connection = 'utf8'");
-        $result = mysqli_query($link,$sql);
+        $result = mysqli_query($link,$sql) or die('fail');
 		
 		
 		

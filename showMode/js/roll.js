@@ -1,6 +1,10 @@
 var count=0;     //first image
 var form=-1;
 var arr=new Array();
+var nameArr = new Array();
+var linkArr = new Array();
+var infoArr = new Array();
+var panelCount;
 
 arr[0]="translateX(-900px) ";
 arr[1]="translateX(-600px) ";
@@ -13,6 +17,10 @@ arr[7]="translateX(1200px) ";
 arr[8]="translateX(1500px) ";
 arr[9]="translateX(1800px) ";
 
+
+
+
+
 var dist = 1;  // leftest img 's  distance to leftleft img
 
 function $(id){
@@ -20,19 +28,65 @@ function $(id){
 }
 
 
-(function init () {
-	for (var i = 0 ; i < arr.length ; i++){
+function carouselBuilder(){
+	for ( var i = 0 ; i <panelCount; i++){
+		var figure = document.createElement("figure");
+		figure.setAttribute("id","figure"+i);
+		var img = document.createElement("img");
+		img.src=linkArr[i];
+		img.width=180;
+		img.height=240;
+		var span = document.createElement("span");
+		span.setAttribute("id","imageInfo"+i);
+		span.innerHTML = nameArr[i];
+		figure.appendChild(img);
+		figure.appendChild(span);
+		$("carousel").appendChild(figure);
+	}
+}
+
+function init () {
+
+	var xhr = new XMLHttpRequest;
+	xhr.onreadystatechange = function(){
+		if (xhr.readyState == 4){
+			var temp = xhr.responseText;
+			var res = temp.split("_");
+			for ( var i =0 ; i<res.length ; i++){
+				if ( i%3 == 0)
+					nameArr.push(res[i]);
+				else if (i%3 == 1)
+					linkArr.push(res[i]);
+				else if (i%3 == 2)
+					infoArr.push(res[i]);
+			}
+		}
+	}
+	xhr.open("GET","./info.php",false);
+	xhr.send(null);
+
+	panelCount=linkArr.length;
+	carouselBuilder();
+	
+	
+		//<figure id='figure".$i."' ><img src='".$row[1]."'  width='180' height='240' alt=''><span id='imageInfo".$i."' >".$row[0]."</span></figure>"
+	
+	
+	
+	
+
+	for (var i = 0 ; i < panelCount ; i++){
 		temp = $("figure"+i);
 		temp.style.webkitTransform = arr[i];
 		temp.style.webkitTransition = "all 1s";
 		if (i==(count+dist+2)%arr.length){
 					var span=$('imageInfo'+i);
 					span.style.opacity='0.8';
-					span.innerHTML="figure"+i;
+					span.innerHTML=nameArr[i];
 					temp.style['-webkit-filter']="grayscale(0)";
 					temp.className='nonopa';
 					var text = document.createElement("div");
-					text.innerHTML="<h1>Figure"+i+"</h1><p>Lorem ipsum dolor sit amet, duo quando eruditi ei, te enim dolore sed. Putant euripidis  nam, pri vocibus mnesarchum definitionem ea. Duo aliquam electram ad, ius eu audire copiosae tincidunt. Minimum tractatos rationibus duo , eu est eius rebum nominavi. Ex omnis erant quando pro. Ex magna ignota erroribus nec, propriae elaboraret est ea.";
+					text.innerHTML="<h1>"+nameArr[i]+"</h1><p>"+infoArr[i]+"</p>";
 					$("info").appendChild(text);
 					temp.setAttribute("onclick","infoDrop()");
 				}
@@ -47,48 +101,48 @@ function $(id){
 					}
 				}
 	}
-})();
+}
 
 
 function onNavButtonClick(increment){
-			panelCount = $('carousel').children.length;
-			initCalculate(panelCount);
+			initCalculate();
 			if (increment == 1){
-				next(panelCount);
+				//alert("hi");
+				next();
 			}
 			else if (increment == -1){
-				previous(panelCount);
+				previous();
 			}
     }
 	
 
 
-function initCalculate(panelCount){
+function initCalculate(){
 	if (count>=0)	
-		count=count%panelCount;	
+		count=count%(panelCount);	
 	else if (count<0)
 		count=panelCount-(Math.abs(count)%panelCount);   //count==-1 || -12|| -23 represent figure10
 }
 
 
-function next(panelCount){
+function next(){
 			var ram;                 //save figure 10 in the beginning due to the for loop start from figure 10, its first coordinate must be record so that figure 0 know where to follow
 
 			for (var i=(panelCount-1);i>=0;i--){ 
-				var temp=eval("figure"+i);
+				var temp=$("figure"+i);
 				
 /* ----------- The middle image opacity ----------- */				
 				if (i==(count+dist+3)%panelCount){
 					var span=$('imageInfo'+i);
 					span.style.opacity='0.8';
-					span.innerHTML="figure"+i;
+					span.innerHTML=nameArr[i];
 					temp.style['-webkit-filter']="grayscale(0)";
 					temp.className='nonopa';
 					
 					$("info").removeChild($("info").lastChild);
 					var text = document.createElement("div");
-					text.innerHTML="<h1>Figure"+i+"</h1><p>Lorem ipsum dolor sit amet, duo quando eruditi ei, te enim dolore sed. Putant euripidis  nam, pri vocibus mnesarchum definitionem ea. Duo aliquam electram ad, ius eu audire copiosae tincidunt. Minimum tractatos rationibus duo , eu est eius rebum nominavi. Ex omnis erant quando pro. Ex magna ignota erroribus nec, propriae elaboraret est ea.";
-					$("info").appendChild(text);
+					text.innerHTML="<h1>"+nameArr[i]+"</h1><p>"+infoArr[i]+"</p>";
+				$("info").appendChild(text);
 					temp.setAttribute("onclick","infoDrop()");
 				}
 				else {
@@ -138,23 +192,23 @@ function next(panelCount){
 
 
 
-function previous(panelCount){
+function previous(){
 			var ram;                                     //save figure 0 in the beginning due to the for loop start from figure 0, its first coordinate must be record so that figure 10 know where to follow
 			var temp;
 			for (var i=0;i<panelCount;i++){ 
-				temp=eval("figure"+i);		
+				temp=$("figure"+i);		
 
 /* ----------- The middle image opacity ----------- */	
 			if (i == (count+dist+1)%panelCount){
 					var span=$('imageInfo'+i);
 					span.style.opacity='0.8';
-					span.innerHTML="figure"+i;
+					span.innerHTML=nameArr[i];
 					temp.className='nonopa';
 					temp.style['-webkit-filter']="grayscale(0)";		
 					
 					$("info").removeChild($("info").lastChild);
 					var text = document.createElement("div");
-					text.innerHTML="<h1>Figure"+i+"</h1><p>Lorem ipsum dolor sit amet, duo quando eruditi ei, te enim dolore sed. Putant euripidis  nam, pri vocibus mnesarchum definitionem ea. Duo aliquam electram ad, ius eu audire copiosae tincidunt. Minimum tractatos rationibus duo , eu est eius rebum nominavi. Ex omnis erant quando pro. Ex magna ignota erroribus nec, propriae elaboraret est ea.";
+					text.innerHTML="<h1>"+nameArr[i]+"</h1><p>"+infoArr[i]+"</p>";
 					$("info").appendChild(text);
 					temp.setAttribute("onclick","infoDrop()");
 			}else{ 
@@ -225,4 +279,6 @@ function partsExtend(flag){
 		setTimeout(function(){temp.style.display="none"} ,500);
 	}
 }
+
+window.addEventListener("DOMContentLoaded", init() ,false);
 		

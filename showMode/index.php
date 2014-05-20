@@ -25,6 +25,7 @@
 
 	
 	</style>
+	
 </head>
 
 <body style="overflow-x: hidden;background-image:url(/img/bg.png); ">
@@ -41,17 +42,7 @@
 	<div class="scroll" ><!--設個邊邊吧~-->
 	<section class="container">
 			<div id="carousel">
-				<figure id="figure0" ><img src="img/pic4.jpg"  width="180" height="240" alt=""><span id="imageInfo0" ></span></figure>
-				<figure id="figure1" ><img src="img/pic5.jpg"  width="180" height="240" alt=""><span id="imageInfo1" ></span></figure>	
-				<figure id="figure2"  ><img src="img/pic6.jpg"  width="180" height="240" alt=""><span id="imageInfo2" ></span></figure>
-				<figure id="figure3"  ><img src="img/pic7.jpg"  width="180" height="240" alt=""><span id="imageInfo3" ></span></figure>
-				<figure id="figure4" ><img src="img/pic8.jpg"  width="180" height="240" alt=""><span id="imageInfo4" ></span></figure>
-				<figure id="figure5" ><img src="img/emily.jpg"  width="180" height="240" alt=""><span id="imageInfo5" ></span></figure>
-				<figure id="figure6" ><img src="img/pic1.jpg"  width="180" height="240" alt=""><span id="imageInfo6" ></span></figure>
-				<figure id="figure7" ><img src="img/pic3.jpg"  width="180" height="240" alt=""><span id="imageInfo7" ></span></figure>
-				<figure id="figure8" ><img src="img/pic4.jpg"  width="180" height="240" alt=""><span id="imageInfo8" ></span></figure>
-				<figure id="figure9" ><img src="img/pic5.jpg"  width="180" height="240" alt=""><span id="imageInfo9" ></span></figure>
-
+				
 			</div>
 		<section id="options">
 			<p id="navigation">
@@ -65,6 +56,7 @@
 	
 	</div>
 	<div id="info"  class="infoHoverOut"> 
+	
 		<div id="parts">
 			<img src="img/pic1.jpg"  />
 			<img src="img/pic2.jpg"  />

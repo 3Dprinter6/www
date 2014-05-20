@@ -19,32 +19,6 @@
 				left:900px;
 				color:white;
 		}
-
-		.fixbarleft{
-			position:absolute;
-			top:0;
-			left:0;
-			
-			
-			*float:left;
-		}
-		.fixbarright{
-			position:absolute;
-			top:0;
-			right:0;
-			
-			
-			*float:right;
-		}
-		.fixbarleft>img{
-			width:100%;
-			height:140px;
-		}
-		.fixbarright>img{
-			width:100%;
-			height:140px;
-		}
-		
 	</style>
 	
 	<script type="text/javascript">
@@ -68,30 +42,27 @@
 			return false;
 			});
 		});
-		
-
 	</script>
 </head>
 
 <body style="overflow-x: hidden;">
 
 		<div class="navbar navbar-fixed-top" id='headerlink'>
-			<div class="navbar-inner" >
-				<div class='fixbarleft' id='fixbarleft'><img src='img/fixbar_left.png'></div>
-				<div class="navcontainer" >
-					<?php include('./zhen/login_success.php')?>
-					<ul class="nav searchbox">
-						<li><input type="text"  placeholder="搜尋" style="font-color:#a1a1a1"></li>
-					</ul> 
-					<ul class="nav button">
-						<li><a href=""><img src="img/print.png"></a></li>
-						<li><a href=""><img src="img/platform.png"></a></li>
-						<li><a href=""><img src="img/forum.png"></a></li>
-					</ul>
-					<span class="nav uploadbutton" ><a href=""><img src="img/upload.png"></a></span>
-				</div>
-				<div class='fixbarright' id='fixbarright'><img src='img/fixbar_right.png'></div>
+		  <div class="navbar-inner" >	
+		  <span class="brand" href="#" ></span>
+			<div class="navcontainer" >
+				<?php include('./zhen/login_success.php')?>
+				<ul class="nav searchbox">
+					<li><input type="text"  placeholder="搜尋" style="font-color:#a1a1a1"></li>
+				</ul> 
+				<ul class="nav button">
+					<li><a href=""><img src="img/print.png"></a></li>
+					<li><a href=""><img src="img/platform.png"></a></li>
+					<li><a href=""><img src="img/forum.png"></a></li>
+				</ul>
+				<span class="nav uploadbutton" ><a href=""><img src="img/upload.png"></a></span>
 			</div>
+		  </div>
 		</div>
 	<span class='platformlink' id='platformlink'><a href=".."><img src="img/print_img/choose.png"></a></span>
 	<span class='printlink' id='printlink'><a href=".."><img src="img/print_img/choose.png"></a></span>
@@ -135,12 +106,6 @@
 	<script type="text/javascript" src="js/roll.js"></script>
 	<script type="text/javascript">
 		autoScroll();
-		
-		document.writeln('寬度：' + screen.width + '/' +'高度：' + screen.height + '<br/>');
-		document.writeln('可用寬度：' + screen.availWidth + '/' +'可用高度：' + screen.availHeight + '<br/>');
-		document.writeln('位元像素：'+screen.colorDepth);
-		document.getElementById("fixbarleft").style.width = (screen.availWidth - 1224)/2;
-		document.getElementById("fixbarright").style.width = (screen.availWidth - 1224)/2;
 	</script>
 </body>
 </html>

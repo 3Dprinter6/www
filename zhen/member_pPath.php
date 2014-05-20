@@ -14,7 +14,7 @@ if($row[6]!=NULL)
 }
 else
 {
-	echo "<img src=\"../img/pic8.jpg\"  title=\"上傳大頭貼\" width=\"150\" \\>";
+	echo "<img src=\"../img/default.png\"  title=\"上傳大頭貼\" width=\"150\" \\>";
 	
 }
 ?>

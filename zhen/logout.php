@@ -16,7 +16,7 @@ require("fb_connect.php");
 		echo '登出中......';
 		echo '<meta http-equiv=REFRESH CONTENT=1;url=../index.php>';
     }
-	if(isset($_SESSION['id']))
+	else if(isset($_SESSION['id']))
 	{
 		unset($_SESSION['id']);
 		$facebook = new Facebook($config);

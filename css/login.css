@@ -23,12 +23,8 @@ margin-right:auto;
 	height:500px;
 	margin-top:150px; 
 	background:#000000;
-	-webkit-border-radius: 20px;
+	-webkit-border-radius: 10px;
         opacity:0.7;
-}
-.logo{
-  padding-top:20px;  
-  text-align : center;
 }
 p{
   font-size:30px;
@@ -37,6 +33,8 @@ p{
 }
 .login_content
 {
+  position:absolute;
+  margin-top:10%;
   width:300px;
   height:350px;
 }
@@ -44,21 +42,14 @@ p{
   *width:300px;
   *height:50px;
 }
-/*img{
-  overflow:hidden;
-  width:150px;
-  height:50px;
-  margin-top:5%;
-  margin-left:25%;
-  margin-right:auto;
-}*/
+
 form{
   font-size:20px;
   font-family: 微軟正黑體;
   color:#FFFFFF;
 }
 .login_insert{
-  margin-top:10%;
+  margin-top:20%;
   list-style:none;
   font-family: 微軟正黑體;
   color:#FFFFFF;
@@ -93,7 +84,7 @@ form{
     margin-left:25%;
     //margin-right:auto;
     margin-bottom:5%;
-    background-color:#4b3f39;
+    background-color:#000000;
     //font-family: 'Open Sans', sans-serif;
     //font-size:12px;
     //text-decoration:none;
@@ -103,8 +94,15 @@ form{
     //padding-right:50px;
     //background-image: linear-gradient(bottom, rgb(62,51,46) 0%, rgb(101,86,78) 100%);
     border-radius: 5px;
+    cursor:pointer;
+    -webkit-transition:all .3s;
     
 }
+.a_demo_four:hover{
+    background:#ffffff;
+    color:#000000;
+}
+
 
 .a_demo_four:active {
     top:3px;
@@ -132,4 +130,9 @@ form{
     top:50%;
     margin-top:-12px;
 
+}
+.login_insert>li>input{
+  background-color:#000000;
+ border-color:#FFFFFF  ;
+  border-width:1px;
 }

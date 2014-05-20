@@ -6,7 +6,7 @@
 
 <body>
 <?php
-    	require_once("../db/dblogin.php");
+    require_once("../db/dblogin.php");
 	require_once("../db/dbconnect.php");
 	$db=new DB();
 	$link=$db->connect_db($_DB['host'],$_DB['username'],$_DB['password'],$_DB['dbname']);
@@ -24,7 +24,7 @@
 if($Account != null && $Password != null && $Password2 != null && $Password == $Password2)
 {
         
-	$sql = "INSERT INTO member (Account,Password,Email,Nickname) values ('$Account','$Password', '$Email','$Nickname')";
+	$sql = "INSERT INTO member (Account,Password,Email,pPath,Nickname) values ('$Account','$Password', '$Email','../img/default.png','$Nickname')";
 	$result = $db->query($link,$sql);
 	
 	if($result)

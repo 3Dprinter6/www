@@ -138,10 +138,13 @@
 
 
 
+
+
+
 .platformlink{
 	position:absolute;
-	top:1190px;
-	left:190px;
+	top:1790px;
+	left:290px;
 	margin-left:10px;
 	width:180px;
 	height:75px;
@@ -149,14 +152,14 @@
 
 .platformlink>a>img{
 	*opacity:0;
-	width:180px;
+	width:280px;
 	height:60px;
 	}
 
 .printlink{
 	position:absolute;
-	top:1660px;
-	left:900px;
+	top:2510px;
+	left:1370px;
 	margin-left:10px;
 	width:180px;
 	height:75px;
@@ -164,14 +167,14 @@
 
 .printlink>a>img{
 	*opacity:0;
-	width:180px;
+	width:225px;
 	height:60px;
 	}
 
 .forumlink{
 	position:absolute;
-	top:1960px;
-	left:43%;
+	top:2960px;
+	left:44%;
 	margin-left:10px;
 	width:180px;
 	height:75px;
@@ -179,9 +182,6 @@
 
 .forumlink>a>img{
 	*opacity:0;
-	width:180px;
+	width:210;
 	height:60px;
 	}
-	
-
-
