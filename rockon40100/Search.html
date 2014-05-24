@@ -1,0 +1,61 @@
+<html>
+
+<head>
+	<title>Search</title>
+	<link rel=stylesheet type="text/css" href="fixbar.css">
+	<style>
+		.searchbox{}
+		.search_select{list-style:none;margin-left:35%}
+		.search_select>li{display:inline;margin:0 0 0px 0px}
+		.search_select>li>select{margin:0 10px 0px 10px}
+		.search_select>li>input{margin:0 10px 0px 0px;}
+		.search_result{text-align:center;margin:50px 120px 120px 120px;border-style:solid;border-color:blue; }
+		.search_content{padding:50px 50px 50px 50px;border-style:solid;border-color:red;}
+		.block>div{height:100px;width:100px;border-style:solid;margin:40px 40px 40px 40px;display:inline-block}
+	</style>
+
+</head>
+
+<body>
+	<div class="navbar navbar-fixed-top" >
+      <div class="navbar-inner" >
+        <div class="container" >          
+          <ul class="nav">
+            <li><a><input type="text"></a></li>
+            <li><a href="">搜尋</a></li>
+          </ul>
+		  <span class="brand" href="#" >Logo</span>
+          <ul class="nav pull-right">
+            <li><a href="" target="">登入</a></li>
+            <li><a href="" target="">註冊</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+	<div height="50px"><font color="#FFFFFF"><p>AAA<p>a<br></font></div>	
+	<div class="searchbox" >
+		<ul class="search_select">
+			<li>從</li>
+			<li><select name="search_kind">
+			<option value="">類別</option>
+			<option value="">kind1</option>
+			<option value="">kind2</option>
+			<option value="">kind3</option></li>
+			<li><input type="text" ></li>
+			<li><input type="submit" value="送出"></li>
+		</ul>
+	</div>
+	<div class="search_result" >
+		<div class="search_content">
+			<div class="block">
+				<div ></div>
+				<div ></div>
+				<div ></div>
+				<div ></div>
+				<div ></div>
+				<div ></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

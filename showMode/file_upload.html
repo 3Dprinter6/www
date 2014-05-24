@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>拖曳多檔案上傳</title>
+	<link rel="stylesheet" type="text/css" href="../css/fixbar.css">
+	<style>
+    body {
+        font-family:微軟正黑體;
+        color:#ffffff;
+    }
+	#first{
+		position:absolute;
+		top:500px;
+		left:400px;
+        -webkit-transition:all 1s;
+		border-style:dashed;
+	}
+	#modelDisplay{
+		position:absolute;
+        -webkit-transition:all 2s;
+		opacity:0;
+	}
+	
+	#second{
+		position:absolute;
+		top:500px;
+		left:1000px;
+        -webkit-transition:all 1s;
+		border-style:dashed;
+	}
+	#physical{
+		position:absolute;
+		top:500px;
+		left:1100px;
+        -webkit-transition:all 1s;
+		border-style:dashed;
+	}
+	.upload{
+        text-align:center;
+		margin-left: auto;
+		margin-right: auto;
+		width: 450px;
+		height: 450px;
+		background: #4d4d4d;
+        -webkit-border-top-left-radius:5px;
+        -webkit-border-top-right-radius:5px;
+		-webkit-border-bottom-left-radius:5px;
+		-webkit-border-bottom-right-radius:5px;
+        opacity:.4;
+	}
+
+    #first img {
+        position:relative;
+        width:450px;
+        height:420px;
+        margin-top:0px;
+        margin-left:0px;
+        -webkit-border-top-left-radius:5px;
+		-webkit-border-top-right-radius:5px;
+		-webkit-border-bottom-left-radius:5px;
+		-webkit-border-bottom-right-radius:5px;
+        -webkit-transition:opacity 1s;
+        opacity:0;
+    }
+
+    #second img {
+        position:relative;
+        width:450px;
+        height:420px;
+        margin-top:0px;
+        margin-left:0px;
+        -webkit-border-top-left-radius:5px;
+		-webkit-border-top-right-radius:5px;
+		-webkit-border-bottom-left-radius:5px;
+		-webkit-border-bottom-right-radius:5px;
+        -webkit-transition:opacity 1s;
+        opacity:0;
+    }
+
+
+    #physical img {
+        position:relative;
+        width:450px;
+        height:420px;
+        margin-top:0px;
+        margin-left:0px;
+        -webkit-border-top-left-radius:5px;
+		-webkit-border-top-right-radius:5px;
+		-webkit-border-bottom-left-radius:5px;
+		-webkit-border-bottom-right-radius:5px;
+        -webkit-transition:opacity 1s;
+        opacity:0;
+    }
+	#basicInfo{
+		position:absolute;
+		top:200px;
+        left:500px;
+
+	}
+	#confirm{
+		margin-top:45%;
+		width:100px;
+		margin-right:auto;
+		margin-left:auto ;
+
+
+	}
+
+    #firstProgress{
+        position:absolute;
+        margin-bottom:0px;
+        margin-left:0px;
+        width:450px;
+        background:#00F7FA;
+        -webkit-border-top-left-radius:5px;
+		-webkit-border-top-right-radius:5px;
+		-webkit-border-bottom-left-radius:5px;
+		-webkit-border-bottom-right-radius:5px;
+
+        }
+    #secondProgress{
+        position:absolute;
+        margin-bottom:0px;
+        margin-left:0px;
+        width:450px;
+        background:#00F7FA;
+        -webkit-border-top-left-radius:5px;
+		-webkit-border-top-right-radius:5px;
+		-webkit-border-bottom-left-radius:5px;
+		-webkit-border-bottom-right-radius:5px;
+
+        }
+
+    #physicalProgress{
+        position:absolute;
+        margin-bottom:0px;
+        margin-left:0px;
+        width:450px;
+        background:#00F7FA;
+        -webkit-border-top-left-radius:5px;
+		-webkit-border-top-right-radius:5px;
+		-webkit-border-bottom-left-radius:5px;
+		-webkit-border-bottom-right-radius:5px;
+
+        }
+	
+	</style>
+
+	</head>
+
+<body style="overflow-x: hidden;background-image:url(/img/bgcolor.png); ">
+	<div class="navbar navbar-fixed-top" id='headerlink'>
+			<div class="navbar-inner" >
+				<div class='fixbarleft' id='fixbarleft'><img src='../img/fixbar_left.png'></div>
+				<div class="navcontainer" >
+					<?php include('./zhen/login_success.php')?>
+					<ul class="nav searchbox">
+						<li><input type="text"  placeholder="搜尋" style="font-color:#a1a1a1"></li>
+					</ul> 
+					<ul class="nav button">
+						<li><a href=""><img src="../img/print.png"></a></li>
+						<li><a href="/displayPlatform/index.html"><img src="../img/platform.png"></a></li>
+						<li><a href="/zhen/forum/forum_index.php"><img src="../img/forum.png"></a></li>
+					</ul>
+					<span class="logo"><a href="index.html"><img src="../img/print_img/choose.png"></a></span>
+					<span class="nav uploadbutton" ><a href="/showMode/file_upload.html"><img src="../img/upload.png"></a></span>
+				</div>
+				<div class='fixbarright' id='fixbarright'><img src='../img/fixbar_right.png'></div>
+			</div>
+		</div>
+	<form action="upload.php" method="post" name="file" id="uploadform" enctype="multipart/form-data">
+		<div id = "basicInfo">
+			作品名稱:：<input type="text" name="name" />
+			<p>
+			選擇分類：
+			<select name="category">
+				<option value='1'>玩具</option>
+				<option value='2'>公仔</option>
+				<option value='3'>服飾</option>
+				<option value='4'>零件</option>
+				<option value='5'>醫療</option>
+				<option value='6'>建築</option>
+				<option value='7'>藝術設計</option>
+				<option value='8'>生活用品</option>
+				<option value='9'>客製化</option>
+				<option value='10'>特殊</option>
+			</select></p><p>
+			選擇資料夾<select name="dir">
+				<option value='1'>資料夾1</option>
+				<option value='2'>資料夾2</option>
+				<option value='3'>資料夾3</option>
+			</select></p><p>
+			簡介：<textarea rows="4" cols="50" name="introduction"></textarea>
+			是否有套件？(同一套建三種檔案名稱需相同)
+			<input type="radio" name="part" value="yes" />有
+			<input type="radio" name="part" value="no" />無</p>
+		</div>
+		
+        <div id ="first" class = "upload">
+			<input type = "hidden" name="dragData[]" id="firstdragData" / >
+            拖曳檔案 or 選擇檔案<input type="file" name="normData[]"  id="firstnormData" />
+
+            <div id="firstProgress"></div>
+			<div id = "modelDisplay"></div>
+        </div>
+		
+		<div id = "second" class = "upload">
+			<input type = "hidden" name="dragData[]" id="seconddragData"/ >
+			拖曳檔案 or 選擇檔案<input type="file" name="normData[]"  id="secondnormData" />
+		    <div id="secondProgress"></div>
+        </div>
+		<!--<div id = "physical" class = "upload">
+			<input type = "hidden" name="dragData[]" id="physicaldragData"/ >
+			拖曳檔案 or 選擇檔案<input type="file" name="normData[]"  id="physicalnormData" />
+		    <div id="physicalProgress"></div>
+        </div>-->
+		<div id = "info" ></div>
+		<p></p>
+		<div id = "confirm">
+			<hr>
+			<input type="submit"  />
+			<input type="reset" value="oops" />
+		</div>
+	
+	</form>
+<script type="text/javascript" src="js/drag2.js" ></script>
+<script type="text/javascript">
+	(function a(){
+	document.getElementById("fixbarleft").style.width = (window.innerWidth  - 1224)/2;
+	document.getElementById("fixbarright").style.width = (window.innerWidth  - 1224)/2;
+	})();
+</script>
+<script src="js/three.js"></script>
+<script src="js/stats.js"></script>
+<script src="js/detector.js"></script>
+<script src="js/stlviewer.js"></script>
+</body>
+
+</html>

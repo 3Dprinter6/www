@@ -1,0 +1,38 @@
+		.member_pic>img{
+			width:60px;
+			height:60px;
+			border:1px solid gray;
+			float:right;
+			margin-top:40px;
+		}
+		
+		.text-right{
+			position:relative;
+			float:right;
+			width:158px;
+			word-wrap: break-word;
+			word-break: normal;
+			vertical-align:bottom;
+			margin-top:47px;
+		}
+		.navbar .nav.login_right{
+			float:right;
+			-webkit-padding-start: 0px;
+		}
+		.login_right>li{
+			float:right;
+			color:#999999;
+			text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+			font-family:Microsoft JhengHei;
+			font-size:16px;
+			padding-right:5px;
+		}
+		.login_right>li>a{
+			float:right;
+			padding:0px 5px 5px 5px;
+			color:#999999;
+			text-decoration:none;
+			text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+			font-family:Microsoft JhengHei;
+			font-size:16px;
+		}

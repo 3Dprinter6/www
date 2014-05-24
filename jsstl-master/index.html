@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>stl viewer</title>
+        <meta charset="utf-8">
+
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=0" />
+		<link rel="stylesheet" type="text/css" media="screen and (min-width: 1200px) and (max-width: 1299px)" href="css/fixbar1280x1024.css" >
+		<link rel="stylesheet" type="text/css" media="screen and (min-width: 1300px) and (max-width: 1899px)" href="css/fixbar1366x768.css" >
+		<link rel="stylesheet" type="text/css" media="screen and (min-width: 1900px)" href="css/fixbar1920x1080.css" >
+        <style>
+            body {
+                *font-family: Monospace;
+                *background-color: #000000;
+                margin: 0px;
+                overflow: hidden;
+                background-repeat: repeat-y;
+                background-image:url(img/bg.png);
+				color:white;
+				font-family:微軟正黑體;
+            }
+            #modelDisplay{
+                position:absolute;
+                margin-top:0px;
+                margin-left:-250px;
+                -webkit-transition:all 2s;
+				opacity:0;
+                }
+            #dragArea{
+                position:absolute;
+                margin-left:20%;
+                margin-top:10%;
+				border-style:dashed;
+				border-color:#23D5D7;
+				background-color:#000000;
+				opacity:.3;
+				
+				width:750px;
+				height:500px;
+				-webkit-border-top-left-radius:5px;
+				-webkit-border-top-right-radius:5px;
+				-webkit-border-bottom-left-radius:5px;
+				-webkit-border-bottom-right-radius:5px;
+				-webkit-transition:all 1s;
+            }
+			#progress{
+				position:absolute;
+				margin-top:0px;
+				margin-left:0px;
+				width:300px;
+				background:#00F7FA;
+				-webkit-border-top-left-radius:5px;
+				-webkit-border-top-right-radius:5px;
+				-webkit-border-bottom-left-radius:5px;
+				-webkit-border-bottom-right-radius:5px;
+				
+			}
+			#form{
+				position:absolute;
+                margin-top:200px;
+                margin-left:850px;
+                -webkit-transition:all 2s;
+				opacity:0;
+			}
+			input {
+				background-color: rgba(0,0,0,0.1);
+				color:white;
+			}
+		</style>
+
+
+    </head>
+	<body style="overflow-x: hidden;">
+
+		<div class="navbar navbar-fixed-top" >
+		  <div class="navbar-inner" >
+		  <span class="brand" href="#" ></span>
+			<div class="navcontainer" >
+				<?php include('./zhen/login_success.php')?>
+				<ul class="nav searchbox">
+					<li><input type="text"  placeholder="搜尋" style="font-color:#a1a1a1"></li>
+				</ul>
+				<ul class="nav button">
+					<li><a href=""><img src="img/print.png"></a></li>
+					<li><a href=""><img src="img/platform.png"></a></li>
+					<li><a href=""><img src="img/forum.png"></a></li>
+				</ul>
+				<span class="nav uploadbutton" href=".."><img src="img/upload.png"></span>
+			</div>
+		  </div>
+		</div>
+        <div id="dragArea">
+			<div id = "progress"></div>
+		</div>
+		<form action="preview.php" method="post" enctype= 'multipart/form-data'>
+		<div id = "modelDisplay"></div>
+		<div id = "form">
+			作品名稱： <input type="text" name="name" /><p>
+			長：<input type="text" name="name"  size="2" />CM&nbsp &nbsp &nbsp 寬： <input type="text" name="name"  size="2" />CM&nbsp &nbsp &nbsp高： <input type="text" name="name"  size="2" />CM <p>
+			列印密度： <input type="text" name="name"  maxlength="5" />&nbsp%
+		</div>
+		</form>
+		<script src="three.js"></script>
+        <script src="stats.js"></script>
+        <script src="detector.js"></script>
+		<script src="stlviewer.js"></script>
+    </body>
+</html>

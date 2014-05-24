@@ -1,0 +1,41 @@
+.platformlink{
+	position:absolute;
+	top:1225px;
+	left:14.5%;
+	margin-left:10px;
+
+	}
+
+.platformlink>a>img{
+	*opacity:0;
+	width:200px;
+	height:60px;
+	}
+
+.printlink{
+	position:absolute;
+	top:1750px;
+	left:72%;
+	margin-left:10px;
+
+	}
+
+.printlink>a>img{
+	*opacity:0;
+	width:160px;
+	height:60px;
+	}
+
+.forumlink{
+	position:absolute;
+	top:2080px;
+	left:43%;
+	margin-left:10px;
+
+	}
+
+.forumlink>a>img{
+	*opacity:0;
+	width:180px;
+	height:60px;
+	}

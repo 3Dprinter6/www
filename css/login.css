@@ -1,0 +1,136 @@
+﻿body{
+overflow:hidden;
+}
+.blur{
+position:absolute;
+  //-webkit-filter: blur(8px) contrast(0.4) brightness(1.4); 
+  //clip: rect(205px 572px 516px 351px);
+  //-webkit-filter: blur(10px);
+  //filter: url(blur.svg#blur);
+margin-top:0px; 
+  overflow:hidden;   
+}
+.middle{
+margin-top:150px;
+
+ position:relative;
+}
+.login{
+ position:relative;
+margin-left:auto;
+margin-right:auto;
+	width: 400px;
+	height:500px;
+	margin-top:150px; 
+	background:#000000;
+	-webkit-border-radius: 10px;
+        opacity:0.65;
+}
+p{
+  font-size:30px;
+  font-family: 微軟正黑體;
+  color:#FFFFFF;
+}
+.login_content
+{
+  position:absolute;
+  margin-top:10%;
+  width:400px;
+  height:350px;
+}
+.fblogin{
+  *width:300px;
+  *height:50px;
+}
+
+form{
+  font-size:24px;
+  font-family: 微軟正黑體;
+  color:#FFFFFF;
+}
+.login_insert{
+  margin-top:20%;
+  list-style:none;
+  font-family: 微軟正黑體;
+  color:#FFFFFF;
+}
+.login_insert>li{
+  height:40px;
+}
+.login_insert>li>input{
+  border-width:8px;
+  border-style:solid;
+  width:230px;
+}
+.login_sent {
+  list-style:none;
+}
+.login_sent>li{
+	display:inline;
+}
+
+/*.login_sent >li>input{
+  position:relative;
+  left:155px;
+}*/
+.login_sent >li>p{
+  font-size:40px;
+  width:200px;
+  margin-top:10px;
+  margin-left:auto;
+  margin-right:auto;
+  padding: 0 30px 0 30px;
+  color:#FFFFFF;	
+  font-family: 微軟正黑體;	
+}
+
+.a_demo_four {
+    margin-left:25%;
+    margin-bottom:5%;
+    background-color:#000000;
+    color:#fff;
+    position:relative;
+    padding:10px 20px;
+    border-radius: 5px;
+    cursor:pointer;
+    -webkit-transition:all .3s;
+    
+}
+.a_demo_four:hover{
+    background:#ffffff;
+    color:#000000;
+}
+
+
+.a_demo_four:active {
+    top:3px;
+    background-image: linear-gradient(bottom, rgb(62,51,46) 100%, rgb(101,86,78) 0%);
+
+}
+ 
+.a_demo_four::before {
+    background-color:#322620;
+    background-image:url(../images/right_arrow.png);
+    background-repeat:no-repeat;
+    background-position:center center;
+    content:"";
+    width:20px;
+    height:20px;
+    position:absolute;
+    right:15px;
+    top:50%;
+    margin-top:-9px;
+    border-radius: 50%;
+
+}
+ 
+.a_demo_four:active::before {
+    top:50%;
+    margin-top:-12px;
+
+}
+.login_insert>li>input{
+  background-color:#000000;
+ border-color:#FFFFFF  ;
+  border-width:1px;
+}
