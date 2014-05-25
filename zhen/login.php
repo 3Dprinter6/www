@@ -31,14 +31,14 @@ $facebook = new Facebook($config);
 						<li><input type="text"  placeholder="搜尋" style="font-color:#a1a1a1"></li>
 					</ul> 
 					<ul class="nav button">
-						<li><a href=""><img src="../img/print.png"></a></li>
-						<li><a href="/displayPlatform/index.html"><img src="../img/platform.png"></a></li>
-						<li><a href="/zhen/forum/forum_index.php"><img src="../img/forum.png"></a></li>
+						<li><a href="../jsstl-master/index.html"><img src="../img/print.png"></a></li>
+						<li><a href="../displayPlatform/index.html"><img src="../img/platform.png"></a></li>
+						<li><a href="forum/forum_index.php"><img src="../img/forum.png"></a></li>
 					</ul>
-					<span class="logo"><a href="index.html"><img src="../img/print_img/choose.png"></a></span>
-					<span class="nav uploadbutton" ><a href="/showMode/file_upload.html"><img src="../img/upload.png"></a></span>
+					<span class="logo"><a href="../index.php"><img src="../img/print_img/choose.png"></a></span>
+					<span class="nav uploadbutton" ><a href="../showMode/file_upload.html"><img src="../img/upload.png"></a></span>
 				</div>
-				<div class='fixbarright' id='fixbarright'><img src='../img/fixbar_right.png'></div>
+				<div class='fixbarright' id='fixbarright'><img src='../img/fixbar_right.png' ></div>
 			</div>
 		</div>
 <div class="middle">
@@ -51,7 +51,7 @@ $facebook = new Facebook($config);
 	  </ul>
 	  <ul class="login_sent">	
                 <li><input type="submit" name="Login" value="登入" class="a_demo_four"></li>
-				<li><input type="button" value="註冊" onclick="register.html" class="a_demo_four"></li>
+				<li><input type="button" value="註冊" onclick="location.href='register.php'" class="a_demo_four"></li>
 	  </ul>
 				<?php
 					$params = array(
@@ -90,7 +90,7 @@ $facebook = new Facebook($config);
 					else {    														
 							//echo 'Please <a href="' . $login_url . '">login.</a>';
 							$login_url = $facebook->getLoginUrl($params);	
-							echo "<a href=".$login_url."><img class='fb' src='../img/fb.PNG' ></a>";										
+							echo "<a href=".$login_url."><img class='fb' src='../img/facebook_login.png'></a>";										
 							
 					}
 				
@@ -100,11 +100,10 @@ $facebook = new Facebook($config);
 	</div>
 </div>	
 <?php //header('Refresh:3');  //for zhen debug usage?>      
-
-</body>
 <script type="text/javascript">
-	document.getElementById("fixbarleft").style.width = (window.innerWidth  - 1224)/2;
-	document.getElementById("fixbarright").style.width = (window.innerWidth  - 1224)/2;
-	alert(window.innerWidth);
+		document.getElementById("fixbarleft").style.width = ((window.innerWidth  - 940)/2).toString() + "px" ;
+		document.getElementById("fixbarright").style.width = ((window.innerWidth  - 940)/2).toString() + "px";
 </script>
+</body>
+
 </html>

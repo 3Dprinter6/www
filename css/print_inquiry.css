@@ -1,0 +1,68 @@
+.middle{
+  width: 100%;
+	  position: relative;
+	  margin-top: 150px;
+
+}
+.middle:after {
+	  display: table;
+	  clear: both;
+  manage: '';
+}
+.product_name{
+*margin-left: 400px;
+*margin-right: 400px;
+*text-align: center;
+font-size:  xx-large;
+font-family: 微軟正黑體;
+}
+.order_status{
+margin-top: 20px;
+ *margin-left: 300px;
+ font-size: 20px;
+font-family: 微軟正黑體;
+}
+.vedio_Link{
+border: 2px solid #7F7F7F;
+height:480px;
+margin-top: 30px;
+width: 640px;
+margin-left: 300px;
+margin-right: 300px;
+}
+.previous_page{
+margin-top: 20px;
+}
+.button2 {
+	opacity:0.7;
+	background-color:#000000;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #858a88;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	*display: none;
+	*visibility:hidden;
+}
+.button2:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0d1515), color-stop(1 , #4d4c4c));
+	background:-moz-linear-gradient(top, #0d1515 10%, #4d4c4c 100%);
+	background:-webkit-linear-gradient(top, #0d1515 10%, #4d4c4c 100%);
+	background:-o-linear-gradient(top, #0d1515 10%, #4d4c4c 100%);
+	background:-ms-linear-gradient(top, #0d1515 10%, #4d4c4c 100%);
+	background:linear-gradient(to bottom, #0d1515 10%, #4d4c4c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0d1515', endColorstr='#4d4c4c',GradientType=0);
+	background-color:#000000;
+	display: block;
+}
+.button2:active {
+	position:relative;
+	top:1px;
+}

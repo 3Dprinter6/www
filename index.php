@@ -44,9 +44,9 @@
 			</div>
 		</div>
 	<span class='platformlink' id='platformlink'><a href="/displayPlatform/index.html"><img src="img/print_img/choose.png"></a></span>
-	<span class='printlink' id='printlink'><a href=".."><img src="img/print_img/choose.png"></a></span>
+	<span class='printlink' id='printlink'><a href="../jsstl-master/index.html"><img src="img/print_img/choose.png"></a></span>
 	<span class='forumlink' id='forumlink'><a href="/zhen/forum/forum_index.php"><img src="img/print_img/choose.png"></a></span>
-	<a href="#" class="backtothetop" >back to the top</a>
+	<!--<a href="#" class="backtothetop" >back to the top</a>-->
 	
 	<img src="img/bg.png" width=100% style="float:left;">
 
@@ -89,35 +89,10 @@
 			onNavButtonClick(1,-1); 
 		}
 		
-	//卷軸動畫	
-		$(function(){
-	// 幫 a. 加上 click 事件
-			$('a.backtothetop').click(function(){
-			// 讓捲軸用動畫的方式移動到 #header 的 top 位置
-			// 並加入動畫效果
-			var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
-			$body.animate({
-				scrollTop: $('#headerlink').offset().top //可+-運算，不可用50%等
-			},5000);
-	 
-			return false;
-			});
-		});
-		
-		
 		autoScroll();
 		
-		document.writeln('寬度：' + screen.width + '/' +'高度：' + screen.height + '<br/>');
-		document.writeln('可用寬度：' + window.innerWidth  + '/' +'可用高度：' + screen.clientHeight + '<br/>');
-		document.writeln('位元像素：'+screen.colorDepth);
-		document.getElementById("fixbarleft").style.width = (window.innerWidth  - 1224)/2;
-		document.getElementById("fixbarright").style.width = (window.innerWidth  - 1224)/2;
-		var w = window.innerWidth;
-		function myrefresh(){
-			//window.location.reload();
-			
-		}
-		//document.body.clientWidth.onchange = myrefresh();
+		document.getElementById("fixbarleft").style.width = (window.innerWidth  - 940)/2;
+		document.getElementById("fixbarright").style.width = (window.innerWidth  - 940)/2;
 		
 	</script>
 </body>

@@ -1,10 +1,10 @@
 var current = 0;
 var arr=new Array();
-	arr[0]="translateX(-1950px) ";
-	arr[1]="translateX(350px) ";
-	arr[2]="translateX(2300px) ";
-	arr[3]="translateX(4250px)";
-	arr[4]="translateX(6200px)";
+	arr[0]="translateX(-2050px) ";
+	arr[1]="translateX(150px) ";
+	arr[2]="translateX(2100px) ";
+	arr[3]="translateX(4050px)";
+	arr[4]="translateX(5950px)";
 var panelCount = $("galleries").children.length;
 function $(id){
 	return document.getElementById(id);

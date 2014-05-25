@@ -1,44 +1,44 @@
 .platformlink{
 	position:absolute;
-	top:1080px;
-	left:14.5%;
+	top:1210px;
+	left:71.5%;
 	margin-left:10px;
 
 	}
 
 .platformlink>a>img{
-	*opacity:0;
-	width:180px;
-	height:60px;
+	opacity:0;
+	width:240px;
+	height:120px;
 	}
 
 .printlink{
 	position:absolute;
-	top:1540px;
-	left:70%;
+	top:1510px;
+	left:16%;
 	margin-left:10px;
 
 	}
 
 .printlink>a>img{
-	*opacity:0;
-	width:180px;
-	height:60px;
+	opacity:0;
+	width:240px;
+	height:120px;
 	}
 
 .forumlink{
 	position:absolute;
-	top:1840px;
+	top:1980px;
 	left:43%;
 	margin-left:10px;
-	width:180px;
+	width:240px;
 	height:75px;
 	}
 
 .forumlink>a>img{
-	*opacity:0;
-	width:180px;
-	height:60px;
+	opacity:0;
+	width:240px;
+	height:120px;
 	}
 	
 

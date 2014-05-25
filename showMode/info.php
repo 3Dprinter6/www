@@ -6,11 +6,11 @@ require_once("/var/www/db/dblogin.php");
 require_once("/var/www/db/dbconnect.php");
 $db=new DB();
 $link=$db->connect_db($_DB['host'],$_DB['username'],$_DB['password'],$_DB['dbname']);
-$sql="SELECT pictureNo, pictureName, 2dimageLink, productInfo,Score,rateNumber FROM platform WHERE updateTime IN (SELECT MAX(updateTime) FROM platform GROUP BY categoryNo)";
+$sql="SELECT pictureNo, pictureName, 3dimageLink,2dimageLink, productInfo,Score,rateNumber FROM platform WHERE updateTime IN (SELECT MAX(updateTime) FROM platform GROUP BY categoryNo)";
 $result = $db->query($link,$sql);
 
 while ($row = mysqli_fetch_row($result)){
-	echo $row[0].'_'.$row[1].'_'.$row[2].'_'.$row[3].'_'.$row[4].'_'.$row[5].'_';
+	echo $row[0].'+'.$row[1].'+'.$row[2].'+'.$row[3].'+'.$row[4].'+'.$row[5].'+'.$row[6].'+';
 }
 
 

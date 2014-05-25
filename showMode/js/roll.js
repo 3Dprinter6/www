@@ -1,8 +1,10 @@
-var count=0;     //first image
+﻿var count=0;     //first image
 var form=-1;
 var arr=new Array();
+
 var noArr = new Array();
 var nameArr = new Array();
+var link3DArr = new Array();
 var linkArr = new Array();
 var infoArr = new Array();
 var scoreArr = new Array();
@@ -10,16 +12,16 @@ var ratenumberArr = new Array();
 var panelCount;
 var currentIndex;
 var averageScore;    //current averageScore
-arr[0]="translateX(-900px) ";
-arr[1]="translateX(-600px) ";
-arr[2]="translateX(-250px) rotateY( -30deg ) translateZ( 100px )";
-arr[3]="rotateY(0deg) translateZ( 200px )";
-arr[4]="translateX(250px) rotateY( 30deg ) translateZ( 100px )";
-arr[5]="translateX(600px) ";
-arr[6]="translateX(900px) ";
-arr[7]="translateX(1200px) ";
-arr[8]="translateX(1500px) ";
-arr[9]="translateX(1800px) ";
+arr[0]="translateX(-850px) ";
+arr[1]="translateX(-550px) ";
+arr[2]="translateX(-250px) rotateY( -30deg ) translateZ( 70px )";
+arr[3]="rotateY(0deg) translateZ( 150px )";
+arr[4]="translateX(250px) rotateY( 30deg ) translateZ( 70px )";
+arr[5]="translateX(550px) ";
+arr[6]="translateX(850px) ";
+arr[7]="translateX(1150px) ";
+arr[8]="translateX(1450px) ";
+arr[9]="translateX(1750px) ";
 
 
 
@@ -70,18 +72,33 @@ function ratingScore(e){
 
 function carouselBuilder(){
 	for ( var i = 0 ; i <panelCount; i++){
+		//var div = document.createElement("div");
 		var figure = document.createElement("figure");
 		figure.setAttribute("id","figure"+i);
+		figure.className="front";
 		var img = document.createElement("img");
 		img.src=linkArr[i];
 		img.width=180;
 		img.height=240;
 		var span = document.createElement("span");
+		
+		 
+	/*	var figure2 = document.createElement("figure");
+		figure2.setAttribute("id","figure3D"+i);
+		figure2.className="back";
+		geoInit(link3DArr[i],"figure3D"+i);
+		
+		var button = document.createElement("button");
+		button.addEventListener("click",function(){toogleClassName("flipped");},false);
+		div.appendChild(button);*/
+		
 		span.setAttribute("id","imageInfo"+i);
 		span.innerHTML = nameArr[i];
 		figure.appendChild(img);
 		figure.appendChild(span);
 		$("carousel").appendChild(figure);
+	//	div.appendChild(figure2);
+		//$("carousel").appendChild(div);
 	}
 }
 
@@ -90,19 +107,21 @@ function imageRequest(){
 	xhr.onreadystatechange = function(){
 		if (xhr.readyState == 4){
 			var temp = xhr.responseText;
-			var res = temp.split("_");
+			var res = temp.split("+");
 			for ( var i =0 ; i<res.length ; i++){
-				if (i%6 == 0 )
+				if (i%7 == 0 )
 					noArr.push(res[i]);
-				else if ( i%6 == 1)
+				else if ( i%7 == 1)
 					nameArr.push(res[i]);
-				else if (i%6 == 2)
+				else if (i%7 == 2)
+					link3DArr.push(res[i]);
+				else if (i%7 == 3)
 					linkArr.push(res[i]);
-				else if (i%6 == 3)
+				else if (i%7 == 4)
 					infoArr.push(res[i]);
-				else if (i%6 == 4)
+				else if (i%7 == 5)
 					scoreArr.push(res[i]);
-				else if (i%6 == 5)
+				else if (i%7 == 6)
 					ratenumberArr.push(res[i]);
 			}
 		}
@@ -384,6 +403,64 @@ function partsExtend(flag){
 		setTimeout(function(){temp.style.display="none"} ,500);
 	}
 }
+
+function disapear(){
+	$("options").style.opacity=0;
+	$("carousel").style.webkitTransform= "scale(5,5)";
+	$("carousel").style.opacity=0;
+	$("viewer3D").style.opacity=1;
+	setTimeout("$('carousel').style.display='none'; $('viewer3D').style.display='inline'; geoInit(link3DArr[currentIndex]);",500);
+	infoDrop();
+}
+
+function appear(){
+	for (var i = 0 ; i<panelCount ; i++){
+		
+		if (i!=currentIndex && i!=(currentIndex+1) && i!=(currentIndex-1))
+			$("figure"+i).className= "opa";
+		else if (i==(currentIndex+1) || i==(currentIndex-1))
+			$("figure"+i).className= "middleopa";
+			
+		$("figure"+i).style.webkitTransform= arr[i];
+	}
+	
+}
+
+
+
+function foldIn(){
+	
+
+
+	for (var i = 0 ; i<panelCount ; i++){
+	
+	if  (i<currentIndex){
+		for (var j = i ; j<currentIndex ; j++){
+			$("figure"+i).style.webkitTransform= arr[j+1];
+		}
+	}
+	else if (i>currentIndex){
+		for (var j = i ; j>currentIndex ; j--){
+			$("figure"+i).style.webkitTransform= arr[j-1];
+		}
+	}
+	
+	//$("figure"+i).style.webkitTransform= arr[currentIndex];
+	
+	
+}
+	setTimeout("disapear()",1000);
+}
+
+function foldOut(){
+	$('carousel').style.display='inline';
+	setTimeout("$('options').style.opacity=1; $('carousel').style.webkitTransform= 'scale(1,1)'; $('carousel').style.opacity=1; $('viewer3D').style.opacity=0;" , 100);
+	
+	infoDrop();
+	setTimeout("appear(); $('viewer3D').style.display='none';",500);
+}
+
+
 
 window.addEventListener("DOMContentLoaded", init() ,false);
 		

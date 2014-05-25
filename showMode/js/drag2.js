@@ -62,7 +62,7 @@ function drop(e){
     xhr.onload=function(){
 		$(DragUpload.target.id+"dragData").value = files[0].name;
 		var temp = DragUpload.target.id+"Progress";
-        $(temp).style.height=progress*(450/100)+"px";  
+        
     };
 
     xhr.upload.onprogress=function(e){
@@ -71,7 +71,7 @@ function drop(e){
         if (progress == 100)
           progress = 99.9;
         var temp = DragUpload.target.id+"Progress";
-        $(temp).style.height=progress*(350/100)+"px";                    // depend on the height of the progress height
+        $(temp).style.height=progress*(400/100)+"px";                      // depend on the height of the progress height
       }
     };
     for (var i in files){

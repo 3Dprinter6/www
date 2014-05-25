@@ -35,7 +35,7 @@
 		for (var i = 0 ; i<extendLink.length ; i++){
 			var img = document.createElement("img");
 			var a = document.createElement("a");
-			if ((i-1)%5==0){                                             //æ“´å……è³‡æ–™åº«
+			if ((i-1)%5==0){                                             //?´å?è³‡æ?åº?
 				
 				$("extendInfo").appendChild(p);
 				p = document.createElement("p");
@@ -111,22 +111,22 @@
 			for (var i = 0; i<panelCount ; i++){	
 					if (i==current){
 						spin.children[i].className="on";
-						spin.children[i].style.webkitTransform="rotateY(360deg) translateX( 450px )";
+						spin.children[i].style.webkitTransform="rotateY(360deg) translateX( 550px )";
 					}else if (i == (current+1)%panelCount){
 						spin.children[i].className="on";
-						spin.children[i].style.webkitTransform="rotateY(270deg) translateX( 450px )";
+						spin.children[i].style.webkitTransform="rotateY(270deg) translateX( 550px )";
 					}
 					else if (((current-1)>=0) && (i== (current-1)%panelCount)){
 						spin.children[i].className="on";
-						spin.children[i].style.webkitTransform="rotateY(450deg) translateX( 450px )";
+						spin.children[i].style.webkitTransform="rotateY(450deg) translateX( 550px )";
 					}
 					else if  (((current-1)<0) && (i== panelCount-Math.abs(current-1)%panelCount)){     //solve when current==0 end current-1 <0 
 						spin.children[i].className="on";
-						spin.children[i].style.webkitTransform="rotateY(450deg) translateX( 450px )";
+						spin.children[i].style.webkitTransform="rotateY(450deg) translateX( 550px )";
 					}else{
 
 						spin.children[i].className="off";
-						spin.children[i].style.webkitTransform="rotateY(180deg) translateX( 450px )";
+						spin.children[i].style.webkitTransform="rotateY(180deg) translateX( 550px )";
 					}		
 			}
 		}
@@ -137,23 +137,23 @@
 		
 				if (i == current){
 					spin.children[i].className="on";
-					spin.children[i].style.webkitTransform="rotateY(360deg) translateX( 450px )";
+					spin.children[i].style.webkitTransform="rotateY(360deg) translateX( 550px )";
 				}else if (i == (current+1)%panelCount){
 
 					spin.children[i].className="on";
-					spin.children[i].style.webkitTransform="rotateY(270deg) translateX( 450px )";
+					spin.children[i].style.webkitTransform="rotateY(270deg) translateX( 550px )";
 				}else if (((current-1)>=0) && (i== (current-1)%panelCount)){
 					spin.children[i].className="on";
-					spin.children[i].style.webkitTransform="rotateY(450deg) translateX( 450px )";
+					spin.children[i].style.webkitTransform="rotateY(450deg) translateX( 550px )";
 				}
 				else if  (((current-1)<0) && (i== panelCount-Math.abs(current-1)%panelCount)){                       //solve when current==0 end current-1 <0 
 					spin.children[i].className="on";
-					spin.children[i].style.webkitTransform="rotateY(450deg) translateX( 450px )";
+					spin.children[i].style.webkitTransform="rotateY(450deg) translateX( 550px )";
 				}
 				else{
 					
 					spin.children[i].className="off";
-					spin.children[i].style.webkitTransform="rotateY(180deg) translateX( 450px )";
+					spin.children[i].style.webkitTransform="rotateY(180deg) translateX( 550px )";
 				}
 
 			}

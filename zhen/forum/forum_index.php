@@ -15,26 +15,25 @@ $link=$db->connect_db($_DB['host'],$_DB['username'],$_DB['password'],$_DB['dbnam
 </head>
 
 <body style="overflow-x: hidden;background-image:url(../../img/bgcolor.png); ">
-		<div class="navbar navbar-fixed-top" >
-		  <div class="navbar-inner" >
-			<div class='fixbarleft' id='fixbarleft'><img src='../../img/fixbar_left.png'></div>
-			<div class="navcontainer" >
-				<?php include('../login_success.php')?>
-				<ul class="nav searchbox">
+		<div class="navbar navbar-fixed-top" id='headerlink'>
+			<div class="navbar-inner" >
+				<div class='fixbarleft' id='fixbarleft'><img src='../../img/fixbar_left.png'></div>
+				<div class="navcontainer" >
+					<?php include('../login_success.php')?>
+					<ul class="nav searchbox">
 						<li><input type="text"  placeholder="搜尋" style="font-color:#a1a1a1"></li>
-				</ul>  
-				<ul class="nav button">
-					<li><a href=""><img src="../../img/print.png"></a></li>
-					<li><a href="../displayPlatform/index.html"><img src="../../img/platform.png"></a></li>
-					<li><a href="forum/forum_index.php"><img src="../../img/forum.png"></a></li>
-				</ul>
-				<span class="logo"><a href="../index.php"><img src="../../img/print_img/choose.png"></a></span>
-				<span class="nav uploadbutton" ><a href="../showMode/file_upload.html"><img src="../../img/upload.png"></a></span>
+					</ul> 
+					<ul class="nav button">
+						<li><a href="../../jsstl-master/index.html"><img src="../img/print.png"></a></li>
+						<li><a href="../../displayPlatform/index.html"><img src="../../img/platform.png"></a></li>
+						<li><a href="../../zhen/forum/forum_index.php"><img src="../../img/forum.png"></a></li>
+					</ul>
+					<span class="logo"><a href="../../index.php"><img src="../img/print_img/choose.png"></a></span>
+					<span class="nav uploadbutton" ><a href="../../showMode/file_upload.html"><img src="../../img/upload.png"></a></span>
+				</div>
+				<div class='fixbarright' id='fixbarright'><img src='../../img/fixbar_right.png'></div>
 			</div>
-			<div class='fixbarright' id='fixbarright'><img src='../../img/fixbar_right.png'></div>
-		  </div>
 		</div>
-	<div>
 
 <ul id="ex">
 <div class="up">
@@ -54,6 +53,11 @@ $link=$db->connect_db($_DB['host'],$_DB['username'],$_DB['password'],$_DB['dbnam
     <th>對於我們網站、系統有任何問題，皆可以在此反應</th>
   </tr>
 </ul>
-
+<script type="text/javascript">
+	document.getElementById("fixbarleft").style.width = ((window.innerWidth  - 940)/2).toString() + "px";
+	document.getElementById("fixbarright").style.width = ((window.innerWidth  - 940)/2).toString() + "px";
+	document.writeln('位元像素：'+ocument.getElementById("fixbarright").style.width);
+</script>
 </body>
+
 </html>

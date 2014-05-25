@@ -8,7 +8,7 @@
 
 
 </head>
-<body style="overflow-x: hidden;background-image:url(../img/bgcolor.png); ">
+<body style="overflow-x: hidden;background-image:url(../img/loginbg.jpg); ">
 		<div class="navbar navbar-fixed-top" >
 		  <div class="navbar-inner" >
 			<div class='fixbarleft' id='fixbarleft'><img src='../img/fixbar_left.png'></div>
@@ -66,26 +66,27 @@
 <div class="rightside">
   <div class="print_inquiry">
 <p>列印進度查詢</p>
-<select name="order[]">
+<form name="form" class="registerform" method="post" action="print_inquiry.php">
+<select name="order">
 <option >近期訂單</option>
 <?php
 
 include('order_tracking.php');  
-//echo "<option>". $row1['orderNo'] .$row2['productName']."</option>"; 
-//echo  "<option><a href='yahoo.com.tw'>拉拉拉</a></option>"
-
+$orderNo=$row1['orderNo'] ;
+echo "<option value='". $orderNo ."'>". $row1['orderNo'] .$row2['productName']."</option>"; 
 while($row1= mysqli_fetch_assoc($result1)+$row2= mysqli_fetch_assoc($result2) )
 {
 	{		
-		echo "<option>". $row1['orderNo'] .$row2['productName']."</option>"; 		
+		$orderNo=$row1['orderNo'] ;
+		echo "<option value='".$orderNo."'>". $row1['orderNo'] .$row2['productName']."</option>"; 		
 		//echo "<li>". $row1['orderNo']  .$row2['productName']."</a></li>"; 		
 	}
 }
 ?>
 </select>
-
+<input type="submit" class="button2" value="查詢" >
+</form>
 <a href="order_history.php" class="button" style="margin-top: 30px;">歷史訂單</a>
-<a href="member_edit.php" class="button2" >查詢</a>
 </div>
 <div class="exhibition">
 <p>個人展覽</p>

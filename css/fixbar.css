@@ -113,7 +113,7 @@
 	*margin:10px 0 0 0;
 	margin-top:23px;
 	-webkit-padding-start: 0px;
-	margin:20px 0px 0 0;
+	margin:40px 0px 0 0;
 	list-style:none;
 	}
 
@@ -124,12 +124,12 @@
 .pull-right>li>a{
 	float:none;
 	padding:10px 10px 11px;
-	line-height:19px;
+	line-height:15px;
 	color:#999999;
 	text-decoration:none;
 	text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
 	font-family:Microsoft JhengHei;
-	font-size:14px;
+	font-size:16px;
 	
 }
 
@@ -140,9 +140,9 @@
 }
 
 .button>li>a>img{
-	*opacity:0;
+	opacity:0;
 	display:inline;
-	margin-top:48px;
+	margin-top:39px;
 	width:65px;
 	height:27px;
 }
@@ -156,7 +156,7 @@
 	border-color: transparent;
 	border-width : 0px;
 	color:#a1a1a1;
-	margin-top:17%;
+	margin-top:13%;
 	font-family:Microsoft JhengHei;
 	font-size:16px;
 	height:20px;
@@ -166,8 +166,8 @@
 }
 .uploadbutton>a>img{
 	margin-left:210px;
-	margin-top:23px;
-	*opacity:0;
+	margin-top:15px;
+	opacity:0;
 	width:65px;
 	height:32px;
 }
@@ -175,11 +175,12 @@
 .logo{
 	position:absolute;
 	margin-left:32px;
-	margin-top:15px;
+	margin-top:8px;
 	z-index:500;
 }
 
 .logo>a>img{
 	width:80px;
 	height:80px;
+	opacity:0;
 }

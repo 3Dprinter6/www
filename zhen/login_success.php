@@ -10,6 +10,7 @@
 			border:1px solid gray;
 			float:right;
 			margin-top:25px;
+			margin-right:15px;
 		}
 		
 		.text-right{
@@ -20,6 +21,7 @@
 			word-break: normal;
 			vertical-align:bottom;
 			margin-top:27px;
+			
 		}
 		.navbar .nav.login_right{
 			float:right;
@@ -30,8 +32,10 @@
 			color:#999999;
 			text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
 			font-family:Microsoft JhengHei;
-			font-size:16px;
+			font-size:18px;
 			padding-right:5px;
+
+			
 		}
 		.login_right>li>a{
 			float:right;
@@ -94,7 +98,7 @@
 				echo"<div class='text-right'>";
 				echo"<ul class=' pull-right'>";
 				echo"<li ><a href='/zhen/login.php' >登入</a></li>";
-				echo"<li ><a href='/zhen/register.html'>註冊</a></li>";
+				echo"<li ><a href='/zhen/register.php'>註冊</a></li>";
 				echo"</ul>";
 				echo"</div>";
 			}
