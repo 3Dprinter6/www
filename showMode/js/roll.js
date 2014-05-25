@@ -1,4 +1,4 @@
-﻿var count=0;     //first image
+var count=0;     //first image
 var form=-1;
 var arr=new Array();
 
@@ -82,7 +82,30 @@ function carouselBuilder(){
 		img.height=240;
 		var span = document.createElement("span");
 		
-		 
+		var box = document.createElement("div");
+		var print = document.createElement("div");
+		var cube = document.createElement("div");
+		var text = document.createElement("div");
+		
+		
+		var printImg = document.createElement("img");
+		var boxImg = document.createElement("img");
+		var textImg = document.createElement("img");
+		
+		printImg.onmouseover= function(){this.src = "img/printiconL.png";};
+		printImg.onmouseout= function(){this.src = "img/printiconD.png";};
+		boxImg.onmouseover= function(){this.src = "img/solidiconL.png";};
+		boxImg.onmouseout= function(){this.src = "img/solidiconD.png";};
+		textImg.onmouseover= function(){this.src = "img/texticonL.png";};
+		textImg.onmouseout= function(){this.src = "img/texticonD.png";};
+		
+		printImg.src="img/printiconD.png";
+		textImg.src="img/texticonD.png";
+		boxImg.src="img/solidiconD.png";
+		
+		print.appendChild(printImg);
+		text.appendChild(textImg);
+		cube.appendChild(boxImg);
 	/*	var figure2 = document.createElement("figure");
 		figure2.setAttribute("id","figure3D"+i);
 		figure2.className="back";
@@ -92,8 +115,23 @@ function carouselBuilder(){
 		button.addEventListener("click",function(){toogleClassName("flipped");},false);
 		div.appendChild(button);*/
 		
+		print.className = "option";
+		cube.className = "option";
+		text.className = "option";
+		
+		print.setAttribute("id","print"+i);
+		text.setAttribute("id","text"+i);
+		cube.setAttribute("id","cube"+i);
+		
+		box.setAttribute("id","optionBox"+i);
+		box.appendChild(print);
+		box.appendChild(cube);
+		box.appendChild(text);
+		
 		span.setAttribute("id","imageInfo"+i);
 		span.innerHTML = nameArr[i];
+		
+		figure.appendChild(box);
 		figure.appendChild(img);
 		figure.appendChild(span);
 		$("carousel").appendChild(figure);
@@ -150,8 +188,8 @@ function init () {
 						child[j].setAttribute("style","-webkit-filter:grayscale(0%)");
 					}
 					$("starStat").innerHTML = "<h2>平均評價："+averageScore+"/5 分，共 "+ratenumberArr[i]+" 筆評價</h2>"
+					$("optionBox"+i).style.opacity=1;
 					
-		
 					var span=$('imageInfo'+i);
 					span.style.opacity='0.8';
 					span.innerHTML=nameArr[i];
@@ -160,8 +198,9 @@ function init () {
 					var text = document.createElement("div");
 					text.innerHTML="<h1>作品名稱："+nameArr[i]+"<p> 作品介紹： "+infoArr[i]+"</p></h1>";
 					$("info").appendChild(text);
-					temp.setAttribute("onclick","infoDrop()");
-					
+					$("text"+i).setAttribute("onclick","infoDrop()"); 
+					$("cube"+i).setAttribute("onclick","foldIn()"); 
+					$("print"+i).setAttribute("onclick","printRequest('"+link3DArr[i]+"')"); 
 
 					for (var j = 0 ; j<child.length ; j++){                                    //the rating system initializing
 						child[j].addEventListener('mouseover',prerate, false);
@@ -177,6 +216,7 @@ function init () {
 				}
 				else {
 					
+					$("optionBox"+i).style.opacity=0;
 					var span=$('imageInfo'+i);
 					span.style.opacity='0';
 					temp.style['-webkit-filter']="grayscale(1)";
@@ -223,6 +263,13 @@ function initCalculate(){
 }
 
 
+function printRequest(path){
+	path = "../showMode/"+path;
+	window.location.href="http://140.127.233.248/jsstl-master/index.php?path="+path;
+	
+}
+
+
 function next(){
 			var ram;                 //save figure 10 in the beginning due to the for loop start from figure 10, its first coordinate must be record so that figure 0 know where to follow
 
@@ -244,6 +291,8 @@ function next(){
 					}
 					$("starStat").innerHTML = "<h2>平均評價："+averageScore+"/5 分，共 "+ratenumberArr[i]+" 筆評價</h2>"
 				
+					$("optionBox"+i).style.opacity=1;
+				
 					var span=$('imageInfo'+i);
 					span.style.opacity='0.8';
 					span.innerHTML=nameArr[i];
@@ -253,12 +302,16 @@ function next(){
 					$("info").removeChild($("info").lastChild);
 					var text = document.createElement("div");
 					text.innerHTML="<h1>作品名稱："+nameArr[i]+"<p>作品介紹： "+infoArr[i]+"</p></h1>";
-				$("info").appendChild(text);
-					temp.setAttribute("onclick","infoDrop()");
+					$("info").appendChild(text);
+					$("text"+i).setAttribute("onclick","infoDrop()");   
+					$("cube"+i).setAttribute("onclick","foldIn()"); 
+					$("print"+i).setAttribute("onclick","printRequest('"+link3DArr[i]+"')"); 
 				}
 				else {
 					
 					var span=$('imageInfo'+i);
+					
+					$("optionBox"+i).style.opacity=0;
 					span.style.opacity='0';
 					temp.style['-webkit-filter']="grayscale(1)";
 					temp.className='opa';
@@ -323,7 +376,9 @@ function previous(){
 					}
 					$("starStat").innerHTML = "<h2>平均評價："+averageScore+"/5 分，共 "+ratenumberArr[i]+" 筆評價</h2>"
 			
+					
 			
+					$("optionBox"+i).style.opacity=1;
 					var span=$('imageInfo'+i);
 					span.style.opacity='0.8';
 					span.innerHTML=nameArr[i];
@@ -334,13 +389,15 @@ function previous(){
 					var text = document.createElement("div");
 					text.innerHTML="<h1>作品名稱："+nameArr[i]+"<p>作品介紹： "+infoArr[i]+"</p></h1>";
 					$("info").appendChild(text);
-					temp.setAttribute("onclick","infoDrop()");
+					$("text"+i).setAttribute("onclick","infoDrop()"); 
+					$("cube"+i).setAttribute("onclick","foldIn()"); 
+					$("print"+i).setAttribute("onclick","printRequest('"+link3DArr[i]+"')"); 
 			}else{ 
 				var span=$('imageInfo'+i);
 				span.style.opacity='0';
 				temp.className='opa';
 				temp.style['-webkit-filter']="grayscale(1)";
-				
+				$("optionBox"+i).style.opacity=0;
 				if  (i==(count+dist)%panelCount || i == (count+dist+2)%panelCount){
 						temp.className='middleopa';
 						temp.setAttribute("onclick","null");
@@ -457,7 +514,7 @@ function foldOut(){
 	setTimeout("$('options').style.opacity=1; $('carousel').style.webkitTransform= 'scale(1,1)'; $('carousel').style.opacity=1; $('viewer3D').style.opacity=0;" , 100);
 	
 	infoDrop();
-	setTimeout("appear(); $('viewer3D').style.display='none';",500);
+	setTimeout("appear(); $('viewer3D').style.display='none';  ",500);
 }
 
 

@@ -88,7 +88,7 @@ UNION ALL
 $result = $db->query($link,$sql);
 
 while ($row = mysqli_fetch_row($result)){
-	echo $row[0].'_'.$row[1].'_'.$row[2].'_';
+	echo $row[0].'+'.$row[1].'+'.$row[2].'+';
 }
 
 ?>

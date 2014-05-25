@@ -1,4 +1,5 @@
-		var camera, scene, renderer,geometry, material, mesh, light1, stats;
+				var camera, scene, renderer,
+				geometry, material, mesh, light1, stats;
 				
 
         function $(id){
@@ -20,29 +21,29 @@
 
 
 				function dragInit(){
-					$("dragArea").addEventListener("dragenter" , dragEnter , false);
-					$("dragArea").addEventListener("dragover" , dragOver , false);
-					$("dragArea").addEventListener("drop" , drop , false);
-					$("dragArea").addEventListener("dragleave" , dragLeave , false);
+					$("dragArea").addEventListener("dragenter" , dragEnter2 , false);
+					$("dragArea").addEventListener("dragover" , dragOver2 , false);
+					$("dragArea").addEventListener("drop" , drop2 , false);
+					$("dragArea").addEventListener("dragleave" , dragLeave2 , false);
 				}
 				
-				function dragLeave(e){
+				function dragLeave2(e){
 					e.preventDefault();
 					e.stopPropagation();
 					e.target.style.opacity=.3;
 				}
 				
-				function dragEnter(e){
+				function dragEnter2(e){
 					e.preventDefault();
 					e.stopPropagation();
 				}
-				function dragOver(e){
+				function dragOver2(e){
 					e.preventDefault();
 					e.stopPropagation();
 					e.target.style.opacity=1;
 				}
 
-				function drop(e){
+				function drop2(e){
 					e.preventDefault();
 					e.stopPropagation();
 					var files = e.dataTransfer.files;
@@ -51,7 +52,7 @@
 					xhr.open("POST","preview.php");
 					xhr.onload=function(){
 						$("dragArea").value = files[0].name;
-						geoInit(files[0].name);
+						geoInit("upload/"+files[0].name);
 					};
 
 					xhr.upload.onprogress=function(e){
@@ -79,6 +80,8 @@
 
 				function geoInit(path){
 				
+			//		$("firstdragData").style.opacity=0;				
+			//		$("firstnormData").style.opacity=0;
 					$("dragArea").style.opacity=0;
 					$("modelDisplay").style.opacity=1;
 					$("form").style.opacity=1;
@@ -311,7 +314,7 @@
 						console.log(e);
 					}
 
-					xhr.open( "GET", 'upload/'+path, true );
+					xhr.open( "GET", path, true );
 					xhr.responseType = "arraybuffer";
 					//xhr.setRequestHeader("Accept","text/plain");
 					//xhr.setRequestHeader("Content-Type","text/plain");
@@ -319,7 +322,7 @@
 					xhr.send( null );
 
 					renderer = new THREE.WebGLRenderer(); //new THREE.CanvasRenderer();
-					renderer.setSize( window.innerWidth, window.innerHeight );
+					renderer.setSize( 900, 900 );
 
 					$("modelDisplay").appendChild( renderer.domElement );
 
@@ -352,4 +355,4 @@
 
 				}
 
-				window.addEventListener("DOMContentLoaded", dragInit , false);
+			//	window.addEventListener("DOMContentLoaded", dragInit , false);

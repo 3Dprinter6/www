@@ -17,6 +17,7 @@
 		timer1 = setTimeout("autoScroll()",3000);
 		onNavButtonClick(1,-1);
 	}
+	autoScroll();
 </script>
 </head>
 <body style="overflow-x: hidden;background-image:url(../img/bgcolor.png); ">
@@ -29,7 +30,7 @@
 					<li><input type="text"  placeholder="搜尋" style="font-color:#a1a1a1"></li>
 				</ul> 
 				<ul class="nav button">
-					<li><a href="../jsstl-master/index.html""><img src="../img/print.png"></a></li>
+					<li><a href="../jsstl-master/index.php"><img src="../img/print.png"></a></li>
 					<li><a href="../displayPlatform/index.html"><img src="../img/platform.png"></a></li>
 					<li><a href="../zhen/forum/forum_index.php"><img src="../img/forum.png"></a></li>
 				</ul>
@@ -50,7 +51,7 @@
 		</p>
 	</section>
  <div id="extendInfo">
-	<h1>P</h1>
+	<h2>各類別熱門3D作品</h2>
 	<hr>
 	
 
@@ -62,8 +63,8 @@
 
 <script type="text/javascript" src="js/platform.js"></script>
 <script type="text/javascript">
-	// if the index.html autoScroll() function is enabled ?
-	autoScroll();
+	
+
 	document.getElementById("fixbarleft").style.width = (window.innerWidth  - 940)/2;
 	document.getElementById("fixbarright").style.width = (window.innerWidth  - 940)/2;
 </script>

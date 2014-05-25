@@ -44,7 +44,7 @@ function dragleave(e){
   e.preventDefault();
   e.stopPropagation();
   if (e.target.id == "second" || e.target.id == "physical"){
-    $(e.target.id).style.opacity=.4;
+  //  $(e.target.id).style.opacity=.4;
   }
 }
 
@@ -62,6 +62,7 @@ function drop(e){
     xhr.onload=function(){
 		$(DragUpload.target.id+"dragData").value = files[0].name;
 		var temp = DragUpload.target.id+"Progress";
+		$(temp).style.opacity=0;
         
     };
 
@@ -71,7 +72,7 @@ function drop(e){
         if (progress == 100)
           progress = 99.9;
         var temp = DragUpload.target.id+"Progress";
-        $(temp).style.height=progress*(400/100)+"px";                      // depend on the height of the progress height
+        $(temp).style.height=progress*(360/100)+"px";                      // depend on the height of the progress height
       }
     };
     for (var i in files){

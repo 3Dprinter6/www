@@ -81,7 +81,7 @@
 				function geoInit(path){
 				
 					$("firstdragData").style.opacity=0;				
-					$("firstnormData").style.opacity=0;
+				//	$("firstnormData").style.opacity=0;
 					$("modelDisplay").style.opacity=1;
 					// Notes:
 					// - STL file format: http://en.wikipedia.org/wiki/STL_(file_format)
@@ -320,16 +320,16 @@
 					xhr.send( null );
 
 					renderer = new THREE.WebGLRenderer(); //new THREE.CanvasRenderer();
-					renderer.setSize( 400, 400 );
+					renderer.setSize( 500, 500 );
 
 					$("modelDisplay").appendChild( renderer.domElement );
 
 
 					stats = new Stats();
 					stats.domElement.style.position = 'absolute';
-					stats.domElement.style.top = '0px';
-			//		stats.domElement.style.left= '50px';
-					document.body.appendChild(stats.domElement);
+					stats.domElement.style.top = '100px';
+					stats.domElement.style.left= '100px';
+					$("modelDisplay").appendChild(stats.domElement);
 				}
 
 				function animate() {

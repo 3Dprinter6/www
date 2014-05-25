@@ -6,11 +6,11 @@
 	<link rel=stylesheet type="text/css" href="../css/fixbar.css">
 	<link rel=stylesheet type="text/css" href="css/roll.css" >
 	<link rel=stylesheet type="text/css" href="css/star.css">
-
 	
 </head>
 
 <body style="overflow-x: hidden;background-image:url(../img/bgcolor.png); ">
+<div id="fb-root"></div>
 	<div class="navbar navbar-fixed-top" id='headerlink'>
 			<div class="navbar-inner" >
 				<div class='fixbarleft' id='fixbarleft'><img src='../img/fixbar_left.png'></div>
@@ -77,8 +77,9 @@
 		</div>
 		<div id="extendParts1"> <input type="button" value="Drop"/></div>
 		<div id="extendParts2"> <input type="button" value="back"/></div>
+		<div id='fbpost' class="fb-share-button" data-href="" data-type="button"></div>
 	</div>
-
+	
 <script type="text/javascript" src="js/utils.js"></script>
 <script src="js/three.js"></script>
 <script src="js/stats.js"></script>
@@ -90,6 +91,14 @@
 	document.getElementById("fixbarleft").style.width = (window.innerWidth  - 940)/2;
 	document.getElementById("fixbarright").style.width = (window.innerWidth  - 940)/2;
 </script>
-	
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=220348348164863&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 </body>
 </html>

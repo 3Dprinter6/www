@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
@@ -48,23 +48,20 @@
 				<div class='fixbarright' id='fixbarright'><img src='../img/fixbar_right.png'></div>
 			</div>
 		</div>
-<div>
+
 <div class="middle">
+  <div class="product_name">
+		<?php echo $productName?>
+  </div>
+  <div class="video_Link">
+    <div  class="order_status">
+      進度：<?php echo $orderStatus?>
+    </div>
+  <img src="http://140.127.220.81:9000/?action=stream" id="embed"/>
+  </div>
+</div>
 <div class="previous_page">
-<a href="manage.php"  class="button2" style="margin-right: 100px;">上一頁</a>
-</div>
-<div class="vedio_Link">
-<div class="button2">
-<div  style="display: none;" class="product_name">
- <?php echo $productName?>
-<span  style="display: none;"  class="order_status">
-進度：<?php echo $orderStatus?>
-</span>
-</div>
- </div>
-<embed src="../img/2.wmv"  type="application/x-mplayer2 " width="640" height="480" />
-</div>
-</div>
+    <a href="manage.php"  class="button2";">上一頁</a>
 </div>
 </body>
 </html>

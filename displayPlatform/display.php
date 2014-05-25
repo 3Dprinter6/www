@@ -10,7 +10,7 @@ $sql="SELECT pictureName, 2dimageLink FROM platform WHERE updateTime IN (SELECT 
 $result = $db->query($link,$sql);
 
 while ($row = mysqli_fetch_row($result)){
-	echo $row[0].'_'.$row[1].'_';
+	echo $row[0].'+'.$row[1].'+';
 }
 
 ?>

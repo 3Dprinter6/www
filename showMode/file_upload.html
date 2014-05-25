@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>拖曳多檔案上傳</title>
 	<link rel="stylesheet" type="text/css" href="../css/fixbar.css">
-	<link rel=stylesheet type="text/css" href="../css/manage.css">
 	<style>
     body {
         font-family:微軟正黑體;
@@ -32,7 +31,7 @@
 	#second{
 		position:absolute;
 		top:150px;
-		left:900px;
+		left:950px;
         -webkit-transition:all 1s;
 	}
 	#physical{
@@ -43,10 +42,8 @@
 	}
 	.upload{
         text-align:center;
-		margin-left: auto;
-		margin-right: auto;
-		width: 270px;
-		height: 360px;
+		width: 300px;
+		height: 400px;
 		background: #4d4d4d;
         -webkit-border-top-left-radius:5px;
         -webkit-border-top-right-radius:5px;
@@ -57,8 +54,8 @@
 
     #first img {
         position:relative;
-        width:270px;
-        height:360px;
+        width:300px;
+        height:400px;
         margin-top:0px;
         margin-left:0px;
         -webkit-border-top-left-radius:5px;
@@ -71,7 +68,7 @@
 
     #second img {
         position:relative;
-        width:270px;
+        width:300px;
         height:360px;
         margin-top:0px;
         margin-left:0px;
@@ -147,6 +144,18 @@
 		-webkit-border-bottom-right-radius:5px;
 
         }
+	#secondnormData{
+		position:absolute;
+		top:50px;
+		left:70px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#modelDisplay{
+		position:absolute;
+		left:-90px;
+		top:-50px;
+	}
 	</style>
 
 	</head>
@@ -161,18 +170,18 @@
 						<li><input type="text"  placeholder="搜尋" style="font-color:#a1a1a1"></li>
 					</ul> 
 					<ul class="nav button">
-						<li><a href="../jsstl-master/index.html""><img src="../img/print.png"></a></li>
-						<li><a href="../displayPlatform/index.html"><img src="../img/platform.png"></a></li>
-						<li><a href="../zhen/forum/forum_index.php"><img src="../img/forum.png"></a></li>
+						<li><a href="../jsstl-master/index.php"><img src="../img/print.png"></a></li>
+						<li><a href="/displayPlatform/index.html"><img src="../img/platform.png"></a></li>
+						<li><a href="/zhen/forum/forum_index.php"><img src="../img/forum.png"></a></li>
 					</ul>
-					<span class="logo"><a href="../index.php"><img src="../img/print_img/choose.png"></a></span>
-					<span class="nav uploadbutton" ><a href="../showMode/file_upload.html"><img src="../img/upload.png"></a></span>
+					<span class="logo"><a href="index.html"><img src="../img/print_img/choose.png"></a></span>
+					<span class="nav uploadbutton" ><a href="/showMode/file_upload.html"><img src="../img/upload.png"></a></span>
 				</div>
 				<div class='fixbarright' id='fixbarright'><img src='../img/fixbar_right.png'></div>
 			</div>
 		</div>
-	<form action="upload.php" method="post" name="file" class="uploadform"  enctype="multipart/form-data">
-		<div id = "basicInfo" >
+	<form action="upload.php" method="post" name="file" class="uploadform" enctype="multipart/form-data">
+		<div id = "basicInfo">
 			作品名稱:：<input type="text" name="name" />
 			<p>
 			選擇分類：
@@ -188,26 +197,28 @@
 				<option value='9'>客製化</option>
 				<option value='10'>特殊</option>
 			</select></p><p>
-			選擇資料夾<select name="dir">
+			選擇資料夾：<select name="dir">
 				<option value='1'>資料夾1</option>
 				<option value='2'>資料夾2</option>
 				<option value='3'>資料夾3</option>
 			</select></p><p>
 			簡介：<textarea rows="4" cols="50" name="introduction"></textarea></p><p>
-
 			是否有套件？(同一套建三種檔案名稱需相同)
 			<input type="radio" name="part" value="yes" />有
 			<input type="radio" name="part" value="no" />無</p>
 		</div>
+		
         <div id ="first" class = "upload">
 			<input type = "hidden" name="dragData[]" id="firstdragData" / >
-            拖曳檔案<input type="file" name="normData[]"  id="firstnormData" />
+            <br/>拖曳STL 3D圖檔
 
             <div id="firstProgress"></div>
+			<div id = "modelDisplay"></div>
         </div>
+		
 		<div id = "second" class = "upload">
 			<input type = "hidden" name="dragData[]" id="seconddragData"/ >
-			拖曳檔案<input type="file" name="normData[]"  id="secondnormData" />
+			<br/>拖曳JPG 2D圖檔<input type="file" name="normData[]"  id="secondnormData" />
 		    <div id="secondProgress"></div>
         </div>
 		<!--<div id = "physical" class = "upload">
@@ -218,19 +229,20 @@
 		<div id = "info" ></div>
 		<p></p>
 		<div id = "confirm">
-			<input type="submit" class="button1" />
-			<input type="reset" value="oops" class="button1" />
+			<input type="submit"  />
+			<input type="reset" value="oops" />
 		</div>
 	
 	</form>
 <script type="text/javascript" src="js/drag2.js" ></script>
 <script type="text/javascript">
-	(function a(){
-	document.getElementById("fixbarleft").style.width = (window.innerWidth  - 940)/2;
-	document.getElementById("fixbarright").style.width = (window.innerWidth  - 940)/2;
-	})();
+		document.getElementById("fixbarleft").style.width = ((window.innerWidth  - 940)/2).toString() + "px" ;
+		document.getElementById("fixbarright").style.width = ((window.innerWidth  - 940)/2).toString() + "px";
 </script>
-
+<script src="js/three.js"></script>
+<script src="js/stats.js"></script>
+<script src="js/detector.js"></script>
+<script src="js/stlviewer.js"></script>
 </body>
 
 </html>

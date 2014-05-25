@@ -84,14 +84,14 @@ while($row1= mysqli_fetch_assoc($result1)+$row2= mysqli_fetch_assoc($result2) )
 }
 ?>
 </select>
-<input type="submit" class="button2" value="查詢" >
+<input type="submit" style="margin-left: 2%;"class="button2" value="查詢" >
 </form>
-<a href="order_history.php" class="button" style="margin-top: 30px;">歷史訂單</a>
+<a href="order_history.php" class="button1" style="margin-top: 30px;">歷史訂單</a>
 </div>
 <div class="exhibition">
 <p>個人展覽</p>
-<a href="" class="button">作品管理</a>
-<a href="../showMode/file_upload.html" class="button">作品上傳</a>
+<a href="" class="button1">作品管理</a>
+<a href="../showMode/file_upload.html" class="button1">作品上傳</a>
 </div>
 </div>
 </div>

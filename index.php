@@ -18,7 +18,7 @@
 				left:900px;
 				color:white;
 		}
-		
+
 	</style>
 </head>
 
@@ -33,7 +33,7 @@
 						<li><input type="text"  placeholder="搜尋" style="font-color:#a1a1a1"></li>
 					</ul> 
 					<ul class="nav button">
-						<li><a href="../jsstl-master/index.html"><img src="img/print.png"></a></li>
+						<li><a href="../jsstl-master/index.php"><img src="img/print.png"></a></li>
 						<li><a href="../displayPlatform/index.html"><img src="img/platform.png"></a></li>
 						<li><a href="../zhen/forum/forum_index.php"><img src="img/forum.png"></a></li>
 					</ul>

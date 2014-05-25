@@ -215,9 +215,8 @@
 			
 				
 				function geoInit(path) {
-			
 					//Detector.addGetWebGLMessage();
-
+					
 					scene = new THREE.Scene();
 
 					camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
@@ -236,6 +235,7 @@
 					xhr.onreadystatechange = function () {
 						if ( xhr.readyState == 4 ) {
 							if ( xhr.status == 200 || xhr.status == 0 ) {
+								
 								var rep = xhr.response; // || xhr.mozResponseArrayBuffer;
 								console.log(rep);
 								parseStlBinary(rep);
@@ -259,7 +259,10 @@
 
 					renderer = new THREE.WebGLRenderer(); //new THREE.CanvasRenderer();
 					renderer.setSize( 1000, 1000 );
-
+					
+					if ($("viewer3D").firstChild){
+						$("viewer3D").removeChild($("viewer3D").firstChild);
+					}
 					$("viewer3D").appendChild( renderer.domElement );
 
 
@@ -275,6 +278,7 @@
 				function animate() {
 
 					// note: three.js includes requestAnimationFrame shim
+					
 					requestAnimationFrame( animate );
 					render();
 					stats.update();
@@ -282,13 +286,15 @@
 				}
 
 				function render() {
+					
 
 					//mesh.rotation.x += 0.01;
 					if (mesh) {
 						mesh.rotation.z += 0.01;
 					}
 					//light1.position.z -= 1;
-
+					
+				//	setTimeout(function(){mesh=null;},2000);
 					renderer.render( scene, camera );
 
 				}

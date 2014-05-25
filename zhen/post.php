@@ -11,6 +11,6 @@
   js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=220348348164863&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="button"></div>
+<div class="fb-share-button" data-href="http://140.127.233.248/img/pic5.jpg" data-type="button"></div>
 </body>
 </html>

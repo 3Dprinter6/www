@@ -29,18 +29,34 @@
 	}
 	
 	function buildextendInfo(){
-
-		
 		var p = document.createElement("p");
-		for (var i = 0 ; i<extendLink.length ; i++){
+		var panel=4;                                          //panel equal how many picture to be picked in each category
+		
+		for (var i = 0 ; i<(extendLink.length+10) ; i++){    //for loop upper bound include category img
+			
 			var img = document.createElement("img");
 			var a = document.createElement("a");
-			if ((i-1)%5==0){                                             //?´å?è³‡æ?åº?
-				
+			
+			if (i%panel==0){                                             
 				$("extendInfo").appendChild(p);
 				p = document.createElement("p");
+				for (var j =0 ; j<10; j++){ 
+					if ((i/panel)==j){
+						
+						img.src="img/"+j+".png";
+			//			alert(img.src);
+						a.href="../thumbnailMode/platform.html";
+						a.appendChild(img);
+						p.appendChild(a);
+						break;
+					}
+				}
+				a = document.createElement("a");
+				img = document.createElement("img");
 			}
-			a.href = "http://140.127.233.247/showMode/?no="+extendInfo[i].trim();
+			
+			
+			a.href = "http://140.127.233.248/showMode/?no="+extendInfo[i].trim();
 			
 			img.src = extendLink[i];
 			a.appendChild(img);
@@ -64,7 +80,7 @@
 		var xhr = new XMLHttpRequest;
 			xhr.onreadystatechange = function(){
 				var res = xhr.responseText;
-				res = res.split("_");
+				res = res.split("+");
 				for (var i = 0 ;i<res.length ; i++){
 					if (i%2 == 0 )
 						nameArr.push(res[i]);
@@ -82,7 +98,7 @@
 		var xhr = new XMLHttpRequest;
 			xhr.onreadystatechange = function(){
 				var res = xhr.responseText;
-				res = res.split("_");
+				res = res.split("+");
 				for (var i = 0 ;i<res.length ; i++){
 					if (i%3 == 0 )
 						extendInfo.push(res[i]);

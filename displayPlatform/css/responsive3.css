@@ -1,18 +1,19 @@
 body{
 	background-image:url(http://140.127.233.247/img/bg.png);
 	color:white;
-	font-family:微�?�??�?
+	font-family:微軟正黑體;
 	font-size:20;
 }
 #next{
 	position:absolute;
 	top:350px;
-	left:600px;
+	left:580px;
 }
 #previous{
 	position:absolute;
 	top:350px;
 	left:10px;
+	
 }
 #spinCircle{
 	position:absolute;
@@ -95,6 +96,7 @@ body{
 
 
 #extendInfo{
+	overflow-y:auto;
 	position:absolute;
 	top:120px;
 	right:50px;
@@ -104,7 +106,14 @@ body{
 	-webkit-border-top-right-radius:5px;
 	-webkit-border-bottom-left-radius:5px;
 	-webkit-border-bottom-right-radius:5px;
-
+	SCROLLBAR-ARROW-COLOR: #d8fcfc;
+SCROLLBAR-FACE-COLOR: #90fcfc;
+SCROLLBAR-DARKSHADOW-COLOR: #fcfcd8;
+SCROLLBAR-BASE-COLOR: #d8fcd8;
+SCROLLBAR-HIGHLIGHT-COLOR: #b4d8fc;
+SCROLLBAR-SHADOW-COLOR: #fcfcd8;
+SCROLLBAR-TRACK-COLOR: #b4fcfc;
+SCROLLBAR-3DLIGHT-COLOR: #d8fcfc
 }
 
 
