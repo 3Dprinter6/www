@@ -230,8 +230,7 @@ function init () {
 				
 				
 	}
-	$("extendParts1").addEventListener("click" , partsExtend(1) , false);
-	$("extendParts2").addEventListener("click" , partsExtend(-1) , false);
+	
 	
 //	var stars = $("starRating").getElementsByTagName("div");
 //	for (var i = (stars.length-1) ; i>=0 ; i--){
@@ -437,12 +436,12 @@ function infoDrop(){
 	var temp = $("info");
 	form = form * (-1);
 	if  (form == 1){
-	//	temp.style.display="inline";
-		temp.className="infoHover";
+		temp.style.display="inline";
+		setTimeout(function(){temp.className="infoHover";},1);
 	}
 	else if (form == -1){
 		temp.className="infoHoverOut";
-	//	setTimeout(function(){ temp.style.display="none"},500);
+		setTimeout(function(){ temp.style.display="none"},500);
 	}
 }
 
@@ -463,11 +462,11 @@ function partsExtend(flag){
 
 function disapear(){
 	$("options").style.opacity=0;
-	$("carousel").style.webkitTransform= "scale(5,5)";
+	$("carousel").style.webkitTransform= "scale(10,10)";
 	$("carousel").style.opacity=0;
 	$("viewer3D").style.opacity=1;
-	setTimeout("$('carousel').style.display='none'; $('viewer3D').style.display='inline'; geoInit(link3DArr[currentIndex]);",500);
-	infoDrop();
+	$('info').style.display='inline';
+	setTimeout("$('carousel').style.display='none'; $('viewer3D').style.display='inline'; geoInit(link3DArr[currentIndex]); $('info').className='infoHover';",500);
 }
 
 function appear(){
@@ -486,9 +485,36 @@ function appear(){
 
 
 function foldIn(){
+		var printImg = document.createElement("img");
+		var boxImg = document.createElement("img");
+		
+		var print = document.createElement("div");
+		var cube = document.createElement("div");
+		var box = document.createElement("div");
+		
+		printImg.onmouseover= function(){this.src = "img/printiconL.png";};
+		printImg.onmouseout= function(){this.src = "img/printiconD.png";};
+		boxImg.onmouseover= function(){this.src = "img/solidiconL.png";};
+		boxImg.onmouseout= function(){this.src = "img/solidiconD.png";};
+		
+		cube.setAttribute("onclick","foldOut()"); 
+		cube.setAttribute("onclick","foldOut()"); 
+		print.setAttribute("onclick","printRequest('"+link3DArr[currentIndex]+"')"); 
+		
+		printImg.src="img/printiconD.png";
+		boxImg.src="img/solidiconD.png";
+		
+		print.appendChild(printImg);
+		cube.appendChild(boxImg);
+
+		print.className = "tempPrint";
+		cube.className = "tempCube";
+
+		box.setAttribute("id","tempBox");
+		box.appendChild(print);
+		box.appendChild(cube);
+		$("info").appendChild(box);
 	
-
-
 	for (var i = 0 ; i<panelCount ; i++){
 	
 	if  (i<currentIndex){
@@ -510,8 +536,10 @@ function foldIn(){
 }
 
 function foldOut(){
+	$("info").removeChild($('info').lastChild);
 	$('carousel').style.display='inline';
-	setTimeout("$('options').style.opacity=1; $('carousel').style.webkitTransform= 'scale(1,1)'; $('carousel').style.opacity=1; $('viewer3D').style.opacity=0;" , 100);
+	$('info').className='infoHoverOut';
+	setTimeout("$('options').style.opacity=1; $('carousel').style.webkitTransform= 'scale(1,1)'; $('carousel').style.opacity=1; $('viewer3D').style.opacity=0; setTimeout(function(){ $('info').style.display='none'},500);" , 1);
 	
 	infoDrop();
 	setTimeout("appear(); $('viewer3D').style.display='none';  ",500);

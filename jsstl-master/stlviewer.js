@@ -331,7 +331,7 @@
 					stats.domElement.style.position = 'absolute';
 					stats.domElement.style.top = '0px';
 			//		stats.domElement.style.left= '50px';
-					document.body.appendChild(stats.domElement);
+			//		document.body.appendChild(stats.domElement);
 				}
 
 				function animate() {

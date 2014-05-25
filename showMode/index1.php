@@ -1,7 +1,7 @@
 <html>
 <meta charset="utf-8" />
 <head>
-	<title>首頁</title>
+	<title>首�?</title>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=0" /> 
 	<link rel=stylesheet type="text/css" href="../css/fixbar.css">
 	<link rel=stylesheet type="text/css" href="css/roll.css" >
@@ -17,7 +17,7 @@
 				<div class="navcontainer" >
 					<?php include('../zhen/login_success.php')?>
 					<ul class="nav searchbox">
-						<li><input type="text"  placeholder="搜尋" style="font-color:#a1a1a1"></li>
+						<li><input type="text"  placeholder="?��?" style="font-color:#a1a1a1"></li>
 					</ul> 
 					<ul class="nav button">
 						<li><a href="../jsstl-master/index.html""><img src="../img/print.png"></a></li>
@@ -30,8 +30,11 @@
 				<div class='fixbarright' id='fixbarright'><img src='../img/fixbar_right.png'></div>
 			</div>
 		</div>
-
-	<div class="scroll" ><!--設個邊邊吧~-->
+	<div id = "Fold">	
+		<input type="button" onclick="foldIn()" value="in"/>
+		<input type="button" onclick="foldOut()" value="out"/>
+	</div>
+	<div class="scroll" ><!--設個�??�吧~-->
 	<section class="container">
 			<div id="carousel">
 				
@@ -49,7 +52,7 @@
 	</div>
 	
 	</div>
-	<div id="info"  class="infoHoverOut"> 
+	<div id="info"  class="infoHoverOut" style="margin-left: 10%;"> 
 		<div id="starRating">
 			<img src="img/star.png" alt="1" >
 			<img src="img/star.png" alt="2" >
@@ -58,6 +61,7 @@
 			<img src="img/star.png" alt="5" >
 		</div>
 		<div id = "starStat"></div>
+		
 		<div id='fbpost' class="fb-share-button" data-href="" data-type="button"></div>
 	</div>
 	
